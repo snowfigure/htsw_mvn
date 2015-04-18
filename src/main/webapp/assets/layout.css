@@ -1,4 +1,4 @@
-body, html {
+body, html,a {
     margin: 0;
     padding: 0;
     font-family: Microsoft YaHei, SimSun, LiHei Pro Medium;
@@ -7,7 +7,6 @@ body, html {
 a {
     text-decoration: none;
     cursor: pointer;
-    font-family: Microsoft YaHei, SimSun, LiHei Pro Medium;
 }
 
 div {
@@ -40,7 +39,10 @@ div {
     width: 500px;
     text-align: right;
 }
-
+.header #user a{
+    text-decoration: none;
+    color: black;
+}
 .header #user #hour-tel {
     font-size: 13px;
     margin-top: 20px;
@@ -138,7 +140,7 @@ div {
 }
 
 .front-content {
-    background-color: #F0F0F0;
+    /*background-color: #F0F0F0;*/
     width: 100%;
     height: auto;
 }
@@ -146,7 +148,7 @@ div {
 .front-content #main-content {
     width: 1100px;
     margin: 0 auto;
-    background-color: #F0F0F0;
+    /*background-color: #F0F0F0;*/
     padding: 10px 0;
 }
 
@@ -156,6 +158,21 @@ div {
     background-color: #E9E8E8;
 }
 
+.front-content #main-content #right-article {
+    float: right;
+    width: 900px;
+    text-align: center;
+    min-height: 200px;
+    padding: 20px 0;
+    /*background-color: #F0F0F0;*/
+}
+.front-content #main-content #right-article h1{
+    margin: 0 auto;
+    padding-bottom: 10px;
+}
+.front-content #main-content #right-article #right-article-content{
+    text-align: left;
+}
 .front-content #main-content #left-nav ul {
     font-size: 16px;
     padding-top: 14px;
@@ -171,9 +188,74 @@ div {
     text-decoration: none;
 
 }
+.front-content #main-content #login-register{
+    float: left;
+    width: 400px;
+    padding: 20px 0 20px;
+    margin-top: 20px;
+    border: #BEBEBE 1px solid;
+    background-color: #F1F0F0;
+    -moz-border-radius: 5px; /* Gecko browsers */
+    -webkit-border-radius: 5px; /* Webkit browsers */
+    border-radius: 5px; /* W3C syntax */
 
-
-
-
-
-
+}
+#login-register #content{
+    width: 100%;
+    padding: 5px 10px 15px 30px;
+}
+#login-register #title{
+    padding-left: 50px;
+    padding-bottom: 10px;
+    font-size: 15px;
+}
+#login-register #splite{
+    width: 380px;
+    border: 1px #BEBEBE solid;
+    margin-left: -20px;
+    margin-bottom: 20px;
+}
+#login-register #content span{
+    margin-right: 10px;
+}
+#login-register #content input {
+    vertical-align: middle;
+    margin: 10px 0 10px 0;
+    width: 320px;
+    height: 40px;
+    text-align: left;
+    border: 1px solid #afabab;
+    padding-left: 10px;
+    color: #666;
+    font-size: 13px;
+    -moz-border-radius: 3px; /* Gecko browsers */
+    -webkit-border-radius: 3px; /* Webkit browsers */
+    border-radius: 3px; /* W3C syntax */
+}
+#login-register #content #forget-psd{
+    text-align: right;
+    width: 100%;
+    padding-right: 40px;
+}
+#login-register #content a{
+    text-decoration: none;
+}
+#login-register #content #register-now{
+    text-align: center;
+    width: 100%;
+}
+#login-register #content #submit-login{
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    background-color: #C00715;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding:10px auto;
+    height: 50px;
+}
+.front-content #main-content #right-content{
+    float: right;
+    width: 680px;
+    padding: 30px 0 20px;
+}

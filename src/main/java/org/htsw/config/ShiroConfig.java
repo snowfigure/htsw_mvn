@@ -1,5 +1,7 @@
 package org.htsw.config;
 
+import java.util.HashMap;
+
 /**
  * Shiro常用变量
  * Created by snowfigure on 2015/4/11.
@@ -42,6 +44,58 @@ public class ShiroConfig {
     public static final int PAGESIZE = 20; // 每页默认显示数
     public static final String DWZ_PAGE_NUMBER = "pageNum"; // dwz page number
     public static final String DWZ_PAGE_SIZE = "numPerPage"; // dwz page size
+
+
+    public static final HashMap<Integer,String> loginHtmlMap = new HashMap<Integer, String>();
+    static {
+        loginHtmlMap.put(0,"<a href=\"login.html\">\n" +
+                "                <input type=\"button\" value=\"登陆\">\n" +
+                "            </a>\n" +
+                "            <a href=\"register.html\">\n" +
+                "                <input type=\"button\" value=\"注册\">\n" +
+                "            </a>");
+        loginHtmlMap.put(2,"<div style=\"padding: 20px\">\n" +
+                "                <a href=\"/admin/index.html\">\n" +
+                "                    <span style=\"\">系统管理（%s）</span>\n" +
+                "                </a>\n" +
+                "                <a href=\"/fpc/logout\" style=\"padding: 20px\">\n" +
+                "                    <span >退出</span>\n" +
+                "                </a>\n" +
+                "            </div>");
+        loginHtmlMap.put(3,"<div style=\"padding: 20px\">\n" +
+                "                <a href=\"/employee/index.html\">\n" +
+                "                    <span style=\"\">业务处理（%s）</span>\n" +
+                "                </a>\n" +
+                "                <a href=\"/fpc/logout\" style=\"padding: 20px\">\n" +
+                "                    <span >退出</span>\n" +
+                "                </a>\n" +
+                "            </div>");
+        loginHtmlMap.put(4," <div style=\"padding: 20px\">\n" +
+                "                <a href=\"/member/index.html\">\n" +
+                "                    <span style=\"\">%s</span>\n" +
+                "                </a>\n" +
+                "                <a href=\"/fpc/logout\" style=\"padding: 20px\">\n" +
+                "                    <span >退出</span>\n" +
+                "                </a>\n" +
+                "            </div>");
+    }
+
+
+    //权限编号
+
+    public static final int GUEST_ROLE = 0;
+    /**
+     * 管理员
+     */
+    public static final int ADMIN_ROLE = 2;
+    /**
+     * 业务员
+     */
+    public static final int EMPLOYEE_ROLE = 3;
+    /**
+     * 客户
+     */
+    public static final int MEMBER_ROLE = 4;
 
     // Shiro default
     /** */

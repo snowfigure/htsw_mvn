@@ -3,9 +3,14 @@ package org.htsw.config;
 import com.jfinal.config.*;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.c3p0.C3p0Plugin;
+import org.htsw.controller.adminpage.AdminPageArticleController;
+import org.htsw.controller.adminpage.AdminPageIndexController;
+import org.htsw.controller.adminpage.AdminPageMenuController;
+import org.htsw.controller.employee.EmployeePageIndexController;
+import org.htsw.controller.frontpage.FrontPageIndexController;
+import org.htsw.controller.frontpage.FrontPageLoginController;
+import org.htsw.controller.member.MemberPageIndexController;
 import org.htsw.model.*;
-import org.htsw.route.AdminPageRoute;
-import org.htsw.route.FrontPageRoute;
 
 public class GlobalConfig extends JFinalConfig {
     /**
@@ -22,8 +27,24 @@ public class GlobalConfig extends JFinalConfig {
      */
     @Override
     public void configRoute(Routes me) {
-        me.add(new AdminPageRoute());
-        me.add(new FrontPageRoute());
+//        me.add(new AdminPageRoute());
+//        me.add(new FrontPageRoute());
+//        me.add(new MemberPageRoute());
+
+        //游客0
+        me.add("/", FrontPageIndexController.class);
+        me.add("/fpc", FrontPageLoginController.class);
+
+        //管理员2
+        me.add("/admin", AdminPageIndexController.class);
+        me.add("/admin/menu", AdminPageMenuController.class);
+        me.add("/admin/article", AdminPageArticleController.class);
+
+        //业务员3
+        me.add("/employee", EmployeePageIndexController.class);
+
+        //客户4
+        me.add("/member", MemberPageIndexController.class);
     }
 
     /**

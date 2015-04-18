@@ -1,4 +1,4 @@
-<#include '/WEB-INF/comm/_layout.ftl'/>
+<#include '/WEB-INF/COMM_LAYOUT/_layout.ftl'/>
 <@layout >
 
 <!-- 开始页面容器 -->

@@ -9,6 +9,7 @@ import org.htsw.model.User;
 
 /**
  * 简单的未登录拦截
+ * 包括未登录的拦截、用户错误访问路径
  *
  * @author SnowFigure {Orgin:風佑兲}
  * @date 2014年11月30日 下午4:38:01
@@ -22,7 +23,7 @@ public class ManagerInterceptor implements Interceptor {
         User loginUser = (User) subject.getSession().getAttribute(ShiroConfig.SHIRO_LOGIN_USER);
         // session为空
         if (null == loginUser) {
-            controller.redirect("/admin/login/index");
+            controller.redirect("/login.html");
         } else {
             ai.invoke();// 注意 一定要执行此方法
         }

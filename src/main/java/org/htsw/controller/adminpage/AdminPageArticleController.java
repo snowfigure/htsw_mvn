@@ -1,9 +1,8 @@
 package org.htsw.controller.adminpage;
 
-import com.jfinal.core.Controller;
 import org.htsw.model.Article;
 
-public class AdminPageArticleController extends Controller {
+public class AdminPageArticleController extends AdminController {
     public void index() {
         setAttr("aid", getPara("aid", "-1"));
         render("/WEB-INF/ADMIN_PAGE/ARTICLE/article.ftl");

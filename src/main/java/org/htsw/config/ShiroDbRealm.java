@@ -44,9 +44,6 @@ public class ShiroDbRealm extends AuthorizingRealm {
     |               M E T H O D S               |
     ============================================*/
 
-    /**
-     * �˷����ǵ�¼ʱ���õģ����ش���������û���Ϣ����
-     */
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
         UsernamePasswordToken upToken = (UsernamePasswordToken) token;
         String username = upToken.getUsername();
@@ -76,13 +73,6 @@ public class ShiroDbRealm extends AuthorizingRealm {
         }
     }
 
-    /**
-     * �˷�����Ϊ�û���Role��permission�� This implementation of the interface expects the
-     * principals collection to return a String username keyed off of this
-     * realm's {@link #getName() name}
-     *
-     * @see #getAuthorizationInfo(PrincipalCollection)
-     */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
 
@@ -124,7 +114,7 @@ public class ShiroDbRealm extends AuthorizingRealm {
                     info.addStringPermission(String.valueOf(roleResc.getInt(RoleResc.RESC_ID)));
                 }
             } else {
-                List<Resc> rescs = Resc.me.find(adminPermissionsQuery); // ����ԱĬ�ϻ�ȡȫ��Ȩ��
+                List<Resc> rescs = Resc.me.find(adminPermissionsQuery);
                 for (Resc resc : rescs) {
                     info.addStringPermission(String.valueOf(resc.getInt(Resc.ID)));
                 }

@@ -6,8 +6,8 @@
     <link rel="stylesheet" type="text/css" href="/assets/easyui/themes/bootstrap/easyui.css">
     <link rel="stylesheet" type="text/css" href="/assets/easyui/themes/icon.css">
 </head>
-<body class="easyui-layout">
-<div data-options="region:'north',border:false"
+<body class="easyui-layout" data-options="fit : true">
+<div data-options="region:'north',border:false,fit:true"
      style="height:30px;padding:0px">
     <#include "/WEB-INF/ADMIN_PAGE/banner.html" />
 </div>
@@ -18,15 +18,15 @@
     <ul id='nav'></ul>
 </div>
 
-<div data-options="region:'south',border:false"
+<div data-options="region:'south',border:false,fit:true"
      style="height:30px;padding:4px 5px 0px 20px;">
     <#include "/WEB-INF/ADMIN_PAGE/copyright.html" />
 </div>
 
 
-<div data-options="region:'center',title:'欢迎使用后台'" id="content">
-    <div id='tabs'>
-        <div id='main' title="首页">
+<div data-options="region:'center',title:'欢迎使用后台',fit:true" id="content">
+    <div id='tabs' data-options="fit:true">
+        <div id='main' title="首页" >
             主要区域
         </div>
     </div>
