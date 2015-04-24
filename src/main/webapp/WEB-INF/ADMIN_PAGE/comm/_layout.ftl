@@ -10,8 +10,12 @@
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
     <link rel="icon" type="image/png" href="/img/icon.jpg">
     <link rel="apple-touch-icon-precomposed" href="/img/icon.jpg">
+    <!-- amazeui -->
     <link rel="stylesheet" href="/assets/amazeui_2.3.0/css/amazeui.min.css"/>
     <link rel="stylesheet" href="/assets/amazeui_2.3.0/css/admin.css">
+    <!-- EasyUI -->
+    <link rel="stylesheet" type="text/css" href="/assets/easyui/themes/bootstrap/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/assets/easyui/themes/icon.css">
 </head>
 <body>
 <!--[if lte IE 9]>
@@ -26,17 +30,7 @@
 
     <!-- content start -->
     <div class="admin-content">
-
-        <div class="am-cf am-padding">
-            <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">404</strong>
-            </div>
-        </div>
-
-        <div class="am-g">
-            <div class="am-u-sm-12">
-                <#nested>
-            </div>
-        </div>
+        <#nested>
     </div>
     <!-- content end -->
 
@@ -46,7 +40,7 @@
 
 <footer>
     <hr>
-    <p class="am-padding-left">© 2014 AllMobilize, Inc. Licensed under MIT license.</p>
+    <p class="am-padding-left">© 2015 恒通商务信息咨询有限公司</p>
 </footer>
 
 <!--[if lt IE 9]>
@@ -61,7 +55,17 @@
 <script src="/assets/amazeui_2.3.0/js/jquery.min.js"></script>
 <script src="/assets/amazeui_2.3.0/js/amazeui.min.js"></script>
 <!--<![endif]-->
-<script src="/assets/amazeui_2.3.0/js/app.js"></script>
+
+<script type="text/javascript">
+        var $fullText = $('.admin-fullText');
+        $('#admin-fullscreen').on('click', function() {
+            $.AMUI.fullscreen.toggle();
+        });
+
+        $(document).on($.AMUI.fullscreen.raw.fullscreenchange, function() {
+            $.AMUI.fullscreen.isFullscreen ? $fullText.text('关闭全屏') : $fullText.text('开启全屏');
+        });
+</script>
 </body>
 </html>
 </#macro>

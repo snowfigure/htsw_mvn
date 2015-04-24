@@ -6,10 +6,12 @@ import com.jfinal.plugin.c3p0.C3p0Plugin;
 import org.htsw.controller.adminpage.AdminPageArticleController;
 import org.htsw.controller.adminpage.AdminPageIndexController;
 import org.htsw.controller.adminpage.AdminPageMenuController;
+import org.htsw.controller.adminpage.AdminPageWebConfigController;
 import org.htsw.controller.employee.EmployeePageIndexController;
 import org.htsw.controller.frontpage.FrontPageIndexController;
 import org.htsw.controller.frontpage.FrontPageLoginController;
 import org.htsw.controller.member.MemberPageIndexController;
+import org.htsw.controller.ueditor.UeditorIndexController;
 import org.htsw.model.*;
 
 public class GlobalConfig extends JFinalConfig {
@@ -39,12 +41,15 @@ public class GlobalConfig extends JFinalConfig {
         me.add("/admin", AdminPageIndexController.class);
         me.add("/admin/menu", AdminPageMenuController.class);
         me.add("/admin/article", AdminPageArticleController.class);
+        me.add("/admin/webconfig", AdminPageWebConfigController.class);
 
         //业务员3
         me.add("/employee", EmployeePageIndexController.class);
 
         //客户4
         me.add("/member", MemberPageIndexController.class);
+
+        me.add("/ueditor", UeditorIndexController.class);
     }
 
     /**

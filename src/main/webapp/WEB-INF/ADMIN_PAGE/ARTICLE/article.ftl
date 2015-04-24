@@ -1,23 +1,18 @@
 <!DOCTYPE html>
-<html class="no-js">
+<html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>恒通商务后台管理系统 - </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="renderer" content="webkit">
-    <meta http-equiv="Cache-Control" content="no-siteapp"/>
     <link rel="icon" type="image/png" href="/img/icon.jpg">
     <link rel="apple-touch-icon-precomposed" href="/img/icon.jpg">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link rel="stylesheet" href="/assets/amazeui_2.3.0/css/amazeui.min.css"/>
     <link rel="stylesheet" href="/assets/amazeui_2.3.0/css/admin.css">
-    <link href="/assets/ueditor/themes/default/css/umeditor.min.css" type="text/css" rel="stylesheet">
-    <link href="/assets/ueditor/ueditor.css" type="text/css" rel="stylesheet">
-    <script type="text/javascript" src="/assets/easyui/jquery.min.js"></script>
-    <script type="text/javascript" charset="utf-8" src="/assets/ueditor/umeditor.config.js"></script>
-    <script type="text/javascript" charset="utf-8" src="/assets/ueditor/umeditor.min.js"></script>
-    <script type="text/javascript" src="/assets/ueditor/lang/zh-cn/zh-cn.js"></script>
+    <link href="/assets/ueditor/themes/default/css/ueditor.min.css" type="text/css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -36,8 +31,13 @@
     <div class="admin-content"  style="min-height: 580px">
 
         <div class="am-cf am-padding">
-            <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">404</strong>
+            <div class="am-fl am-cf" style="float: left;width: 40%">
+                <strong class="am-text-primary am-text-lg"></strong>
             </div>
+            <div style="float: right;width: 40%;text-align: right;padding-right: 20px">
+                <button class="am-btn am-btn-danger" id="article_save">保存</button>
+            </div>
+            <div style="clear: both"></div>
         </div>
 
         <div class="am-g">
@@ -61,44 +61,51 @@
 
     <p class="am-padding-left">© 2014 AllMobilize, Inc. Licensed under MIT license.</p>
 </footer>
+<script type="text/javascript" charset="utf-8" src="/assets/easyui/jquery.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/assets/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="/assets/ueditor/ueditor.all.js"></script>
+<script type="text/javascript" charset="utf-8" src="/assets/ueditor/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript" charset="utf-8" src="/assets/amazeui_2.3.0/js/amazeui.min.js"></script>
 
-<!--[if lt IE 9]>
-<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
-<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
-<script src="/assets/amazeui_2.3.0/js/polyfill/rem.min.js"></script>
-<script src="/assets/amazeui_2.3.0/js/polyfill/respond.min.js"></script>
-<script src="/assets/amazeui_2.3.0/js/amazeui.legacy.js"></script>
-<![endif]-->
-
-<!--[if (gte IE 9)|!(IE)]><!-->
-<script src="/assets/amazeui_2.3.0/js/jquery.min.js"></script>
-<script src="/assets/amazeui_2.3.0/js/amazeui.min.js"></script>
-<!--<![endif]-->
-<script src="/assets/amazeui_2.3.0/js/app.js"></script>
 </body>
 </html>
 <script type="text/javascript">
 
     $(function () {
-        var um = UM.getEditor('myEditor');
-        um.addListener('blur', function () {
+
+        {
+            var aid = ${aid!};
+            if(aid<5)
+            {
+                $("#_setting").click();
+            }
+            else
+            {
+                $("#_product").click();
+            }
+        }
+
+
+
+        var $fullText = $('.admin-fullText');
+        $('#admin-fullscreen').on('click', function() {
+            $.AMUI.fullscreen.toggle();
+        });
+
+        $(document).on($.AMUI.fullscreen.raw.fullscreenchange, function() {
+            $.AMUI.fullscreen.isFullscreen ? $fullText.text('关闭全屏') : $fullText.text('开启全屏');
+        });
+
+
+
+        var ueditor = UE.getEditor('myEditor');
+        ueditor.addListener('blur', function () {
             $('#focush2').html('编辑器失去焦点了')
         });
-        um.addListener('focus', function () {
+        ueditor.addListener('focus', function () {
             $('#focush2').html('')
         });
-        $('.edui-btn-drafts').attr('data-original-title', '保存');
-//        $('.edui-btn-fullscreen').click();
-        loadContent();
-
-
-        $('.edui-btn-drafts').bind({
-            'click': function () {
-                saveContent();
-            }
-        });
-
-        function loadContent() {
+        ueditor.addListener("ready", function () {
             $.ajax({
                 type: 'POST',
                 url: '/admin/article/edit/',
@@ -108,31 +115,35 @@
                     type: 'load'
                 },
                 success: function (data) {
-                    UM.getEditor('myEditor').setContent(data.content, false);
-                    //$('h1').html(data.title)
+                    UE.getEditor('myEditor').setContent(data.content, false);
                     $('strong').html(data.title);
                 }
-
             });
-        }
+        });
 
-        function saveContent() {
-            if (!UM.getEditor('myEditor').hasContents()) return;
-            var content = UM.getEditor('myEditor').getContent();
-            $.ajax({
-                type: 'POST',
-                url: '/admin/article/edit/',
-                dataType: 'json',
-                data: {
-                    aid:${aid!},
-                    type: 'save',
-                    content: content
-                },
-                success: function (data) {
-                    loadContent();
-                }
+        $('#article_save').bind({
+            'click': function () {
+                var progress = $.AMUI.progress;
+                progress.start();
+                progress.inc();
+                if (!UE.getEditor('myEditor').hasContents()) return;
+                var content = UE.getEditor('myEditor').getContent();
+                $.ajax({
+                    type: 'POST',
+                    url: '/admin/article/edit/',
+                    dataType: 'json',
+                    data: {
+                        aid:${aid!},
+                        type: 'save',
+                        content: content
+                    },
+                    success: function (data) {
+                        progress.done(true);
+                    }
+                });
+            }
+        });
 
-            });
-        }
+
     });
 </script>

@@ -16,19 +16,24 @@ public class FrontPageIndexController extends SystemCtroller {
         setAttr("pageFlag", "index");
         render("/WEB-INF/FRONT_PAGE/index.ftl");
     }
-
+    public void browser() {
+        setAttr("title", "首页");
+        setAttr("pageFlag", "browser");
+        render("/WEB-INF/FRONT_PAGE/browser.ftl");
+    }
     public void aboutUs() {
         setAttr("title", "关于我们");
         setAttr("pageFlag", "aboutUs");
         setAttr("aid", 1);
         render("/WEB-INF/FRONT_PAGE/frontArticle.ftl");
     }
-    public void contact() {
-        setAttr("title", "联系我们");
-        setAttr("pageFlag", "contact");
-        setAttr("aid", 4);
-        render("/WEB-INF/FRONT_PAGE/frontArticle.ftl");
+    public void privacy() {
+      setAttr("title", "隐私声明");
+      setAttr("pageFlag", "privacy");
+      setAttr("aid", 2);
+      render("/WEB-INF/FRONT_PAGE/frontArticle.ftl");
     }
+
     public void joinUs() {
         setAttr("title", "人才招聘");
         setAttr("pageFlag", "joinUs");
@@ -36,12 +41,42 @@ public class FrontPageIndexController extends SystemCtroller {
         render("/WEB-INF/FRONT_PAGE/frontArticle.ftl");
     }
 
-    public void privacy() {
-        setAttr("title", "隐私声明");
-        setAttr("pageFlag", "privacy");
-        setAttr("aid", 2);
+    public void contact() {
+        setAttr("title", "联系我们");
+        setAttr("pageFlag", "contact");
+        setAttr("aid", 4);
         render("/WEB-INF/FRONT_PAGE/frontArticle.ftl");
     }
+
+    public void products() {
+      setAttr("title", "产品介绍");
+      setAttr("pageFlag", "products");
+      setAttr("aid", 5);
+      render("/WEB-INF/FRONT_PAGE/frontArticle.ftl");
+    }
+
+    public void fresher() {
+        setAttr("title", "新手入门");
+        setAttr("pageFlag", "fresher");
+        setAttr("aid", 6);
+        render("/WEB-INF/FRONT_PAGE/frontArticle.ftl");
+    }
+    public void zifei() {
+        setAttr("title", "资费说明");
+        setAttr("pageFlag", "zifei");
+        setAttr("aid", 7);
+        render("/WEB-INF/FRONT_PAGE/frontArticle.ftl");
+    }
+    public void commques() {
+        setAttr("title", "常见问题");
+        setAttr("pageFlag", "commques");
+        setAttr("aid", 8);
+        render("/WEB-INF/FRONT_PAGE/frontArticle.ftl");
+    }
+
+
+
+
 
     public void article(){
         int aid = getParaToInt("aid", -1);

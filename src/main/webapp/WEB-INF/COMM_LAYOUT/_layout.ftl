@@ -15,6 +15,17 @@
 
     <link href="/assets/imgflash/style.css" rel="stylesheet" type="text/css"/>
     <link href="/assets/imgflash/blue.css" rel="stylesheet" type="text/css" id="style_color"/>
+
+    <script src="/assets/ext/json2.js"></script>
+    <!--[if lte IE 8]>
+    <div style="width: 100%;text-align: center;border: #C00715 1px solid">
+        您使用的浏览器<span style="color: #C00715;">版本过旧</span>，
+        不能获得最佳访问体验，
+        请使用<a href="/browser.html">推荐浏览器</a>获得最佳体验，
+        非常感谢！
+    </div>
+
+    <![endif]-->
     <!--[if lt IE 9]>
     <script src="/assets/ext/html5shiv.js"></script>
     <script src="/assets/ext/respond.min.js"></script>
@@ -40,8 +51,8 @@
 <div class="front-menu">
     <div id="menu-content">
         <a href="/index.html">首页</a>
-        <a href="/index">产品介绍</a>
-        <a href="/aboutUs.html">关于我们</a>
+        <a href="/aboutUs.html">公司简介</a>
+        <a href="/products.html">产品介绍</a>
         <a href="/qaOnline.html">意见反馈</a>
     </div>
 </div>
@@ -55,8 +66,8 @@
         <div id="footer-left">
             <div>
                 <a>新手入门</a>
-                <a href="/aboutUs.html">关于我们</a>
-                <a href="/aboutUs.html">联系方式</a>
+                <a href="/aboutUs.html">公司简介</a>
+                <a href="/contact.html">联系我们</a>
                 <a href="/joinUs.html">人才招聘</a>
                 <a href="/privacy.html">免责声明</a>
                 <a href="/privacy.html">隐私声明</a>
@@ -81,6 +92,7 @@
     </div>
 
 </div>
+
 
 <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
 <script src="/assets/ext/jquery.min.js"></script>
