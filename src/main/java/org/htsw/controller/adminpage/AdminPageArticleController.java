@@ -1,7 +1,10 @@
 package org.htsw.controller.adminpage;
 
+import com.jfinal.aop.Before;
+import org.htsw.config.ManagerInterceptor;
 import org.htsw.model.Article;
 
+@Before(ManagerInterceptor.class)
 public class AdminPageArticleController extends AdminController {
     public void index() {
         setAttr("aid", getPara("aid", "-1"));

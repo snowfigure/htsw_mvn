@@ -33,7 +33,6 @@ public class Stream {
             try {
                 outputStream.close();
             } catch (IOException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         }

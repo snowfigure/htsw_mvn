@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/src/main/java/com/baidu/ueditor/Uploader.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/sf/kits/mail/MailInfo.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/sf/kits/mail/MailSenderInfo.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/sf/kits/mail/MailUtil.java" charset="UTF-8" />
@@ -15,8 +14,23 @@
     <file url="file://$PROJECT_DIR$/src/main/java/org/htsw/controller/frontpage/FrontPageLoginController.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/org/htsw/controller/member/MemberController.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/org/htsw/controller/member/MemberPageIndexController.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/org/htsw/controller/ueditor/UeditorDialogsController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/htsw/controller/member/MemberPageUserEditController.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/org/htsw/controller/ueditor/UeditorIndexController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/htsw/model/ChinaArea.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/htsw/model/type/TypeDegree.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/htsw/model/type/TypeHouse.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/htsw/model/type/TypeMarryStatus.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/htsw/model/user/User_Bank.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/htsw/model/user/User_Car.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/htsw/model/user/User_House.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/htsw/model/user/User_Info.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/FRONT_PAGE/register.ftl" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/MEMBER_PAGE/member_applyLog.ftl" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/MEMBER_PAGE/member_info_edit.ftl" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/MEMBER_PAGE/sub/_sub_user_bank.ftl" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/MEMBER_PAGE/sub/_sub_user_house_car.ftl" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/MEMBER_PAGE/sub/_sub_user_info.ftl" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/assets/htsw/MEMBER/load.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/assets/htsw/MEMBER/save.js" charset="UTF-8" />
   </component>
 </project>

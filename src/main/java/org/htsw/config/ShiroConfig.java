@@ -46,15 +46,16 @@ public class ShiroConfig {
     public static final String DWZ_PAGE_SIZE = "numPerPage"; // dwz page size
 
 
-    public static final HashMap<Integer,String> loginHtmlMap = new HashMap<Integer, String>();
+    public static final HashMap<Integer, String> loginHtmlMap = new HashMap<Integer, String>();
+
     static {
-        loginHtmlMap.put(0,"<a href=\"login.html\">\n" +
+        loginHtmlMap.put(0, "<a href=\"login.html\">\n" +
                 "                <input type=\"button\" value=\"登陆\">\n" +
                 "            </a>\n" +
                 "            <a href=\"register.html\">\n" +
                 "                <input type=\"button\" value=\"注册\">\n" +
                 "            </a>");
-        loginHtmlMap.put(2,"<div style=\"padding: 20px\">\n" +
+        loginHtmlMap.put(2, "<div style=\"padding: 20px\">\n" +
                 "                <a href=\"/admin/index.html\">\n" +
                 "                    <span style=\"\">系统管理（%s）</span>\n" +
                 "                </a>\n" +
@@ -62,7 +63,7 @@ public class ShiroConfig {
                 "                    <span >退出</span>\n" +
                 "                </a>\n" +
                 "            </div>");
-        loginHtmlMap.put(3,"<div style=\"padding: 20px\">\n" +
+        loginHtmlMap.put(3, "<div style=\"padding: 20px\">\n" +
                 "                <a href=\"/employee/index.html\">\n" +
                 "                    <span style=\"\">业务处理（%s）</span>\n" +
                 "                </a>\n" +
@@ -70,7 +71,7 @@ public class ShiroConfig {
                 "                    <span >退出</span>\n" +
                 "                </a>\n" +
                 "            </div>");
-        loginHtmlMap.put(4," <div style=\"padding: 20px\">\n" +
+        loginHtmlMap.put(4, " <div style=\"padding: 20px\">\n" +
                 "                <a href=\"/member/index.html\">\n" +
                 "                    <span style=\"\">%s</span>\n" +
                 "                </a>\n" +
@@ -80,7 +81,33 @@ public class ShiroConfig {
                 "            </div>");
     }
 
-
+    public static final HashMap<Integer, String> WelcomeMsgMap = new HashMap<Integer, String>();
+    static{
+        WelcomeMsgMap.put(0, "凌晨好，%s，别拿生命来熬夜，早睡早起身体好！");
+        WelcomeMsgMap.put(1, "凌晨好，%s，别拿生命来熬夜，早睡早起身体好！");
+        WelcomeMsgMap.put(2, "凌晨好，%s，别拿生命来熬夜，早睡早起身体好！");
+        WelcomeMsgMap.put(3, "凌晨好，%s，别拿生命来熬夜，早睡早起身体好！");
+        WelcomeMsgMap.put(4, "清晨好，%s，别拿生命来熬夜，早睡早起身体好！");
+        WelcomeMsgMap.put(5, "清晨好，%s，身体渐渐苏醒，迎接新一天的到来！");
+        WelcomeMsgMap.put(6, "清晨好，%s，早上喝一杯水，排毒养颜！");
+        WelcomeMsgMap.put(7, "上午好，%s，一顿营养的早餐是一天生活的开始！");
+        WelcomeMsgMap.put(8, "上午好，%s，愿您有一个愉快的上午！");
+        WelcomeMsgMap.put(9, "上午好，%s，愿您有一个愉快的上午！");
+        WelcomeMsgMap.put(10,"上午好，%s，愿您有一个愉快的上午！");
+        WelcomeMsgMap.put(11,"中午好，%s，愿您有一个愉快的中午！");
+        WelcomeMsgMap.put(12,"中午好，%s，午餐居三餐之首，来一顿有营养的午餐吧！");
+        WelcomeMsgMap.put(13,"中午好，%s，午休一刻钟，轻松一下午！");
+        WelcomeMsgMap.put(14,"下午好，%s，愿您有一个愉快的下午！");
+        WelcomeMsgMap.put(15,"下午好，%s，喝个下午茶，轻松！");
+        WelcomeMsgMap.put(16,"下午好，%s，愿您有一个愉快的下午！");
+        WelcomeMsgMap.put(17,"下午好，%s，愿您有一个愉快的下午！");
+        WelcomeMsgMap.put(18,"傍晚好，%s，胃不和，卧不安，来一顿健康营养的晚餐！");
+        WelcomeMsgMap.put(19,"傍晚好，%s，胃不和，卧不安，来一顿健康营养的晚餐！");
+        WelcomeMsgMap.put(20,"晚上好，%s，早睡早起身体好！");
+        WelcomeMsgMap.put(21,"晚上好，%s，早睡早起身体好！");
+        WelcomeMsgMap.put(22,"晚上好，%s，早睡早起身体好！");
+        WelcomeMsgMap.put(23,"晚上好，%s，早睡早起身体好！");
+    }
     //权限编号
 
     public static final int GUEST_ROLE = 0;

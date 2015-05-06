@@ -10,9 +10,18 @@ import org.htsw.controller.adminpage.AdminPageWebConfigController;
 import org.htsw.controller.employee.EmployeePageIndexController;
 import org.htsw.controller.frontpage.FrontPageIndexController;
 import org.htsw.controller.frontpage.FrontPageLoginController;
+import org.htsw.controller.load.LoadCtroller;
+import org.htsw.controller.member.MemberPageUserEditController;
 import org.htsw.controller.member.MemberPageIndexController;
 import org.htsw.controller.ueditor.UeditorIndexController;
 import org.htsw.model.*;
+import org.htsw.model.type.TypeDegree;
+import org.htsw.model.type.TypeHouse;
+import org.htsw.model.type.TypeMarryStatus;
+import org.htsw.model.user.User_Bank;
+import org.htsw.model.user.User_Car;
+import org.htsw.model.user.User_House;
+import org.htsw.model.user.User_Info;
 
 public class GlobalConfig extends JFinalConfig {
     /**
@@ -36,6 +45,7 @@ public class GlobalConfig extends JFinalConfig {
         //游客0
         me.add("/", FrontPageIndexController.class);
         me.add("/fpc", FrontPageLoginController.class);
+        me.add("/load", LoadCtroller.class);
 
         //管理员2
         me.add("/admin", AdminPageIndexController.class);
@@ -48,6 +58,8 @@ public class GlobalConfig extends JFinalConfig {
 
         //客户4
         me.add("/member", MemberPageIndexController.class);
+        me.add("/member/userEdit", MemberPageUserEditController.class);
+        //
 
         me.add("/ueditor", UeditorIndexController.class);
     }
@@ -65,12 +77,26 @@ public class GlobalConfig extends JFinalConfig {
         ActiveRecordPlugin arp = new ActiveRecordPlugin(c3p0Plugin);
         me.add(arp);
         arp.addMapping("article", Article.class);
+        arp.addMapping("china_areas", ChinaArea.class);
         arp.addMapping("u_resc", Resc.class);
         arp.addMapping("u_role", Role.class);
         arp.addMapping("u_role_resc", RoleResc.class);
         arp.addMapping("u_role_user", RoleUser.class);
         arp.addMapping("user", User.class);
         arp.addMapping("c_webconfig", WebConfig.class);
+
+
+        arp.addMapping("apply_degree_type", TypeDegree.class);
+        arp.addMapping("apply_marry_status_type", TypeMarryStatus.class);
+        arp.addMapping("apply_house_type", TypeHouse.class);
+
+        arp.addMapping("user_info", User_Info.class);
+        arp.addMapping("user_house", User_House.class);
+        arp.addMapping("user_car", User_Car.class);
+        arp.addMapping("user_bank", User_Bank.class);
+
+
+
     }
 
     /**
@@ -78,9 +104,9 @@ public class GlobalConfig extends JFinalConfig {
      */
     @Override
     public void configInterceptor(Interceptors me) {
-        // TODO Auto-generated method stub
+
         // 自定义未登录拦截
-//		 me.add(new ManagerInterceptor());
+
         // 添加事物，对save、update和delete自动进行拦截
 //		me.add(new TxByActionMethods( "save", "update", "delete" ));
     }
@@ -90,7 +116,7 @@ public class GlobalConfig extends JFinalConfig {
      */
     @Override
     public void configHandler(Handlers me) {
-        // TODO Auto-generated method stub
+
         me.add(new HtmlHandler());
     }
 

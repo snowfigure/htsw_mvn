@@ -39,18 +39,18 @@ public class TrustSSL {
             conn.disconnect();
         } catch (ConnectException e) {
             System.out.println("ConnectException");
-            System.out.println(e);
+            System.out.println(e.toString());
             return "ERROR";
         } catch (IOException e) {
             System.out.println("IOException");
-            System.out.println(e);
+            System.out.println(e.toString());
             return "ERROR";
         } catch (NoSuchAlgorithmException e) {
-            // TODO Auto-generated catch block
+
             e.printStackTrace();
             return "ERROR";
         } catch (KeyManagementException e) {
-            // TODO Auto-generated catch block
+
             e.printStackTrace();
             return "ERROR";
         } finally {

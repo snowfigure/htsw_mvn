@@ -40,4 +40,4 @@
 
 </@layout>
 <script type="text/javascript" src="/assets/easyui/jquery.easyui.min.js"></script>
-<script type="text/javascript" src="/assets/cms/system_config.js"></script>
+<script type="text/javascript" src="/assets/htsw/ADMIN/system_config.js"></script>

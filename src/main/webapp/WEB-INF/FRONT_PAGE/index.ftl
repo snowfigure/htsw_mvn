@@ -29,9 +29,9 @@
 
 </@layout>
 <!-- 开始页级（仅对当前页面所需的JavaScript代码）-->
-<script type="text/javascript" src="/assets/jquery_ext/jquery.themepunch.plugins.min.js"></script>
-<script type="text/javascript" src="/assets/jquery_ext/jquery.themepunch.revolution.min.js"></script>
-<script type="text/javascript" src="/assets/jquery_ext/jquery.bxslider.min.js"></script>
+<script type="text/javascript" src="/assets/ext/jquery.themepunch.plugins.min.js"></script>
+<script type="text/javascript" src="/assets/ext/jquery.themepunch.revolution.min.js"></script>
+<script type="text/javascript" src="/assets/ext/jquery.bxslider.min.js"></script>
 <script src="/assets/imgflash/app.js"></script>
 <script src="/assets/imgflash/index.js"></script>
 <script type="text/javascript">

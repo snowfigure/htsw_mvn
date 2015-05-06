@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <title>${systemConfig['WEBNAME']!} - ${title!}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="icon" type="image/png" href="/img/icon.jpg">
     <meta name="keywords" content="${systemConfig['KEYWORDS']!}"/>
     <meta name="description" content="${systemConfig['DESCRIPTION']!}"/>
 
     <!-- 新 Bootstrap 核心 CSS 文件 -->
     <link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/assets/layout.css" rel="stylesheet">
+    <link href="/assets/htsw/layout.css" rel="stylesheet">
 
     <link href="/assets/imgflash/style.css" rel="stylesheet" type="text/css"/>
     <link href="/assets/imgflash/blue.css" rel="stylesheet" type="text/css" id="style_color"/>
@@ -47,6 +48,21 @@
 </div>
 
 <div class="front-content">
+    <div id="main-content" style="margin-bottom: 10px">
+        <div style="float: left;width: 100px;padding-left: 40px;margin-right: 40px">
+            <img src="/assets/img/user.png" style="height: 90px">
+        </div>
+        <div style="float: left;width: 900px;padding-top: 20px;padding-left: 30px">
+            <div style="font-size: 19px;margin-bottom: 10px"><span>${welcome!}</span></div>
+            <div style="font-size: 13px"><span>
+                用户名：${user['username']!} &nbsp;
+                您的ID：${user['id']!} &nbsp;
+                上次登陆时间：${user['last_login_time']!} &nbsp;
+
+            </span></div>
+        </div>
+    </div>
+    <div id="div-clear"></div>
     <#nested>
 </div>
 
@@ -83,7 +99,7 @@
 </div>
 
 <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-<script src="/assets/ext/jquery.min.js"></script>
+<script src="/assets/ext/jquery-2.0.0.min.js"></script>
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
 <script src="/assets/ext/_ext.js"></script>

@@ -32,7 +32,7 @@ public class HttpDownloadUtil {
             bos.flush();
             bos.close();
         } catch (Exception e) {
-            // TODO: handle exception
+            System.out.println(e.toString());
         }
         return false;
     }

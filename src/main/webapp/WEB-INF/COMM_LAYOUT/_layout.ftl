@@ -11,7 +11,7 @@
 
     <!-- 新 Bootstrap 核心 CSS 文件 -->
     <link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/assets/layout.css" rel="stylesheet">
+    <link href="/assets/htsw/layout.css" rel="stylesheet">
 
     <link href="/assets/imgflash/style.css" rel="stylesheet" type="text/css"/>
     <link href="/assets/imgflash/blue.css" rel="stylesheet" type="text/css" id="style_color"/>
@@ -53,7 +53,8 @@
         <a href="/index.html">首页</a>
         <a href="/aboutUs.html">公司简介</a>
         <a href="/products.html">产品介绍</a>
-        <a href="/qaOnline.html">意见反馈</a>
+        <a href="/member/apply.html">产品申请</a>
+        <#--<a href="/qaOnline.html">意见反馈</a>-->
     </div>
 </div>
 
@@ -95,7 +96,7 @@
 
 
 <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-<script src="/assets/ext/jquery.min.js"></script>
+<script src="/assets/ext/jquery-2.0.0.min.js"></script>
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
 <script src="/assets/ext/_ext.js"></script>

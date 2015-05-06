@@ -10,6 +10,9 @@ import org.htsw.controller.SystemCtroller;
 import org.htsw.model.RoleUser;
 import org.htsw.model.User;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * 前台的登陆和退出
  * 包括普通用户和管理员用户
@@ -41,13 +44,21 @@ public class FrontPageLoginController extends SystemCtroller {
         }
         catch (Exception ex)
         {
+            System.out.println(ex.toString());
             renderText("falseLogin");
             return;
         }
         User user = (User) subject.getSession().getAttribute(ShiroConfig.SHIRO_LOGIN_USER);
         int uid = user.getInt("id");
         int role_id = User.dao.getUserRoleIDByUserID(uid);
-        System.out.println("role_id：" + role_id);
+        Date now = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//可以方便地修改日期格式
+
+
+        String login_time = dateFormat.format(now);
+        User _user = User.dao.findById(uid);
+        _user.set("last_login_time",login_time).update();
+        //System.out.println("role_id->" + role_id);
         renderText("" + role_id);
     }
 
