@@ -7,7 +7,7 @@ import com.jfinal.core.Controller;
  * Ueditor
  * Created by snowfigure on 2015/4/22.
  */
-public class UeditorIndexController  extends Controller {
+public class UeditorIndexController extends Controller {
     public void upload() {
         renderJsp("/assets/ueditor/jsp/controller.jsp");
     }

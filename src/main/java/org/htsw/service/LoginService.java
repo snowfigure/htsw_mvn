@@ -9,16 +9,13 @@ import org.htsw.model.User;
  * Created by snowfigure on 2015/4/17.
  */
 public class LoginService {
-    public static String isRightAccess(Subject subject)
-    {
-        if(subject.isAuthenticated())
-        {
+    public static String isRightAccess(Subject subject) {
+        if (subject.isAuthenticated()) {
             User user = (User) subject.getSession().getAttribute(ShiroConfig.SHIRO_LOGIN_USER);
             int uid = user.getInt("id");
             int role_id = User.dao.getUserRoleIDByUserID(uid);
             System.out.println("role_id：" + role_id);
-            if(role_id==ShiroConfig.MEMBER_ROLE)
-            {
+            if (role_id == ShiroConfig.MEMBER_ROLE) {
                 System.out.println("竟然通过了");
                 return "SUCCESS";
             }

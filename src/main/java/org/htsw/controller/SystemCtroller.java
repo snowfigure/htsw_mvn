@@ -27,37 +27,29 @@ public class SystemCtroller extends Controller {
         System.out.println("hour:" + hour);
         //3 验证用户登陆
         Subject subject = SecurityUtils.getSubject();
-        if(subject.isAuthenticated())
-        {
+        if (subject.isAuthenticated()) {
             System.out.println("User Has Login the System");
             User user = (User) subject.getSession().getAttribute(ShiroConfig.SHIRO_LOGIN_USER);
             int uid = user.getInt("id");
             int role_id = User.dao.getUserRoleIDByUserID(uid);
             System.out.println("User Has Login the System:role_id" + role_id);
-            if(role_id>=2 && role_id<=4)
-            {
+            if (role_id >= 2 && role_id <= 4) {
                 String html =
-                        String.format(ShiroConfig.loginHtmlMap.get(role_id),user.get("username"));
+                        String.format(ShiroConfig.loginHtmlMap.get(role_id), user.get("username"));
                 setAttr("loginHtml", html);
                 setAttr(
                         "welcome",
-                        String.format(ShiroConfig.WelcomeMsgMap.get(hour),user.get("username"))
+                        String.format(ShiroConfig.WelcomeMsgMap.get(hour), user.get("username"))
                 );
-                setAttr("user",user);
+                setAttr("user", user);
                 super.render(view);
+            } else {
+                setAttr("loginHtml", ShiroConfig.loginHtmlMap.get(0));
             }
-            else
-            {
-                setAttr("loginHtml",ShiroConfig.loginHtmlMap.get(0));
-            }
-        }
-        else
-        {
+        } else {
             System.out.println("User Has not Login the System");
-            setAttr("loginHtml",ShiroConfig.loginHtmlMap.get(0));
+            setAttr("loginHtml", ShiroConfig.loginHtmlMap.get(0));
         }
-
-
 
 
         super.render(view);

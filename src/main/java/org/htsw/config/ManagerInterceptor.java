@@ -36,7 +36,7 @@ public class ManagerInterceptor implements Interceptor {
                     (role_id == 2 && uri.startsWith("/admin/")) ||
                             (role_id == 3 && uri.startsWith("/employee/")) ||
                             (role_id == 4 && uri.startsWith("/member/"))
-                             || (role_id == 2 && uri.startsWith("/assets/ueditor/jsp/"))
+                            || (role_id == 2 && uri.startsWith("/assets/ueditor/jsp/"))
                     ) {
                 ai.invoke();// 注意 一定要执行此方法
             } else {

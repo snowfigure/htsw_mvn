@@ -14,24 +14,19 @@ public class LoadCtroller extends Controller {
     /**
      * 获取省份列表
      */
-    public void ProvinceJSON()
-    {
+    public void ProvinceJSON() {
         renderJson(ChinaArea.me.getProvince());
     }
 
     /**
      * 根据省份编号获取城市列表
      */
-    public void CityJSON()
-    {
+    public void CityJSON() {
         System.out.println("Loading。。。");
-        int pid = getParaToInt(0,-1);
-        if(pid==-1)
-        {
+        int pid = getParaToInt(0, -1);
+        if (pid == -1) {
             renderText("ERROR");
-        }
-        else
-        {
+        } else {
             renderJson(ChinaArea.me.getCity(pid));
         }
     }
@@ -39,29 +34,24 @@ public class LoadCtroller extends Controller {
     /**
      * 根据省份编号获取城市列表
      */
-    public void TownJSON()
-    {
-        int cid = getParaToInt(0,-1);
-        if(cid==-1)
-        {
+    public void TownJSON() {
+        int cid = getParaToInt(0, -1);
+        if (cid == -1) {
             renderText("ERROR");
-        }
-        else
-        {
+        } else {
             renderJson(ChinaArea.me.getTown(cid));
         }
     }
 
-    public void MarryStatusJSON()
-    {
+    public void MarryStatusJSON() {
         renderJson(TypeMarryStatus.me.find("select * from apply_marry_status_type"));
     }
-    public void DegreeTypeJSON()
-    {
+
+    public void DegreeTypeJSON() {
         renderJson(TypeDegree.me.find("select * from apply_degree_type"));
     }
-    public void HouseTypeJSON()
-    {
+
+    public void HouseTypeJSON() {
         renderJson(TypeHouse.me.find("select * from apply_house_type"));
     }
 

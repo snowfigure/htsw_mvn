@@ -24,27 +24,22 @@ public class FrontPageLoginController extends SystemCtroller {
     /**
      * 用户登录
      */
-    public void login()
-    {
-        String username = getPara("username","");
-        String password = getPara("password","");
-        if(StringUtils.isEmpty(username) || StringUtils.isEmpty(password))
-        {
+    public void login() {
+        String username = getPara("username", "");
+        String password = getPara("password", "");
+        if (StringUtils.isEmpty(username) || StringUtils.isEmpty(password)) {
             renderText("empty");
             return;
         }
         UsernamePasswordToken token =
-                new UsernamePasswordToken(username,password,true,getRequest().getRemoteAddr());
+                new UsernamePasswordToken(username, password, true, getRequest().getRemoteAddr());
         Subject subject = SecurityUtils.getSubject();
         try {
-            if( subject.isAuthenticated() )
-            {
+            if (subject.isAuthenticated()) {
                 subject.logout();
             }
             subject.login(token);
-        }
-        catch (Exception ex)
-        {
+        } catch (Exception ex) {
             System.out.println(ex.toString());
             renderText("falseLogin");
             return;
@@ -58,7 +53,7 @@ public class FrontPageLoginController extends SystemCtroller {
 
         String login_time = dateFormat.format(now);
         User _user = User.dao.findById(uid);
-        _user.set("last_login_time",login_time).update();
+        _user.set("last_login_time", login_time).update();
         //System.out.println("role_id->" + role_id);
         renderText("" + role_id);
     }
@@ -66,52 +61,46 @@ public class FrontPageLoginController extends SystemCtroller {
     /**
      * 用户注销
      */
-    public void logout()
-    {
+    public void logout() {
 
-        try{
+        try {
             Subject subject = SecurityUtils.getSubject();
             subject.logout();
-        }
-        catch (Exception ex) {
+        } catch (Exception ex) {
 
         }
         redirect("/index.html");
     }
 
-    public void register()
-    {
-        String username = getPara("username","");
+    public void register() {
+        String username = getPara("username", "");
         String password = getPara("password", "");
         password = MD5.getMD5ofStr(password).toLowerCase();
         String email = getPara("email", "");
-        if( StringUtils.isEmpty(username) || StringUtils.isEmpty(password) || StringUtils.isEmpty(email))
-        {
+        if (StringUtils.isEmpty(username) || StringUtils.isEmpty(password) || StringUtils.isEmpty(email)) {
             renderText("ERROR");
             return;
         }
-        User user = User.dao.findFirst("select * from user where username = ?",username);
-        if(user != null)
-        {
+        User user = User.dao.findFirst("select * from user where username = ?", username);
+        if (user != null) {
             renderText("EXIST_USER");
             return;
         }
-        user = User.dao.findFirst("select * from user where email = ?",email);
-        if(user != null)
-        {
+        user = User.dao.findFirst("select * from user where email = ?", email);
+        if (user != null) {
             renderText("EXIST_EMAIL");
             return;
         }
         User newUser = new User();
         Boolean flag = newUser.set("username", username)
-                .set("password",password)
-                .set("email",email)
-                .set("enable",0)
-                .set("delete_status",0).save();
+                .set("password", password)
+                .set("email", email)
+                .set("enable", 0)
+                .set("delete_status", 0).save();
 
         //member用户的角色分配
         RoleUser newRoleUser = new RoleUser();
-        newRoleUser.set("user_id",newUser.getInt("id"))
+        newRoleUser.set("user_id", newUser.getInt("id"))
                 .set("role_id", 4).save();
 
         //member用户的几个基本信息表创建

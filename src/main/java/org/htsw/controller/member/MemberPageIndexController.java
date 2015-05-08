@@ -16,6 +16,7 @@ public class MemberPageIndexController extends MemberController {
         setAttr("pageFlag", "index");
         render("/WEB-INF/MEMBER_PAGE/member_info_edit.ftl");
     }
+
     public void edit() {
         User loginUser = (User) SecurityUtils.getSubject().
                 getSession().getAttribute(ShiroConfig.SHIRO_LOGIN_USER);
@@ -33,11 +34,13 @@ public class MemberPageIndexController extends MemberController {
         setAttr("pageFlag", "edit");
         render("/WEB-INF/MEMBER_PAGE/member_info_edit.ftl");
     }
+
     public void apply() {
         setAttr("title", "申请");
         setAttr("pageFlag", "apply");
         render("/WEB-INF/MEMBER_PAGE/member_apply.ftl");
     }
+
     public void applyLog() {
         setAttr("title", "申请记录");
         setAttr("pageFlag", "applyLog");

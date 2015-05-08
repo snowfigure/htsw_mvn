@@ -9,6 +9,6 @@ import org.htsw.controller.SystemCtroller;
 public class MemberController extends SystemCtroller {
     @Override
     public void render(String view) {
-         super.render(view);
+        super.render(view);
     }
 }

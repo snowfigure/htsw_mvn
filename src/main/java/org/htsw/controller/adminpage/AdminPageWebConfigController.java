@@ -9,9 +9,8 @@ import org.htsw.config.ManagerInterceptor;
  */
 
 @Before(ManagerInterceptor.class)
-public class AdminPageWebConfigController extends AdminController  {
-    public void index()
-    {
+public class AdminPageWebConfigController extends AdminController {
+    public void index() {
         render("/WEB-INF/ADMIN_PAGE/system_config.ftl");
     }
 }
