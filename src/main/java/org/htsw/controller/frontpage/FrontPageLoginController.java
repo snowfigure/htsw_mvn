@@ -9,6 +9,7 @@ import org.htsw.config.ShiroConfig;
 import org.htsw.controller.SystemCtroller;
 import org.htsw.model.RoleUser;
 import org.htsw.model.User;
+import org.htsw.model.user.*;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -108,9 +109,21 @@ public class FrontPageLoginController extends SystemCtroller {
                 .set("enable",0)
                 .set("delete_status",0).save();
 
+        //member用户的角色分配
         RoleUser newRoleUser = new RoleUser();
         newRoleUser.set("user_id",newUser.getInt("id"))
-                .set("role_id",4).save();
+                .set("role_id", 4).save();
+
+        //member用户的几个基本信息表创建
+
+        (new User_Bank()).set("uid", newUser.getInt("id")).save();
+        (new User_Car()).set("uid", newUser.getInt("id")).save();
+        (new User_Company()).set("uid", newUser.getInt("id")).save();
+        (new User_Contact()).set("uid", newUser.getInt("id")).save();
+        (new User_Enterprise()).set("uid", newUser.getInt("id")).save();
+        (new User_House()).set("uid", newUser.getInt("id")).save();
+        (new User_Info()).set("uid", newUser.getInt("id")).save();
+
         renderText("" + flag);
     }
 }

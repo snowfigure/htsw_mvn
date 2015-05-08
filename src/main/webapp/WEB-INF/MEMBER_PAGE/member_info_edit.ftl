@@ -10,6 +10,9 @@
                 <#include '/WEB-INF/MEMBER_PAGE/sub/_sub_user_info.ftl'/>
                 <#include '/WEB-INF/MEMBER_PAGE/sub/_sub_user_bank.ftl'/>
                 <#include '/WEB-INF/MEMBER_PAGE/sub/_sub_user_house_car.ftl'/>
+                <#include '/WEB-INF/MEMBER_PAGE/sub/_sub_user_company.ftl'/>
+                <#include '/WEB-INF/MEMBER_PAGE/sub/_sub_user_enterprise.ftl'/>
+                <#include '/WEB-INF/MEMBER_PAGE/sub/_sub_user_contact.ftl'/>
             </div>
         </div>
         <div id="div-clear"></div>

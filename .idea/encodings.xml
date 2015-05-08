@@ -17,17 +17,31 @@
     <file url="file://$PROJECT_DIR$/src/main/java/org/htsw/controller/member/MemberPageUserEditController.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/org/htsw/controller/ueditor/UeditorIndexController.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/org/htsw/model/ChinaArea.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/htsw/model/type/TypeCarBuy.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/htsw/model/type/TypeCompany.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/htsw/model/type/TypeCompanyBelong.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/org/htsw/model/type/TypeDegree.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/htsw/model/type/TypeEnterprise.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/htsw/model/type/TypeEnterprisePlace.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/htsw/model/type/TypeGender.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/org/htsw/model/type/TypeHouse.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/htsw/model/type/TypeJob.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/org/htsw/model/type/TypeMarryStatus.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/htsw/model/type/TypeSalaryGive.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/org/htsw/model/user/User_Bank.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/org/htsw/model/user/User_Car.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/htsw/model/user/User_Company.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/htsw/model/user/User_Contact.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/htsw/model/user/User_Enterprise.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/org/htsw/model/user/User_House.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/org/htsw/model/user/User_Info.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/FRONT_PAGE/register.ftl" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/MEMBER_PAGE/member_applyLog.ftl" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/MEMBER_PAGE/member_info_edit.ftl" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/MEMBER_PAGE/sub/_sub_user_bank.ftl" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/MEMBER_PAGE/sub/_sub_user_company.ftl" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/MEMBER_PAGE/sub/_sub_user_contact.ftl" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/MEMBER_PAGE/sub/_sub_user_enterprise.ftl" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/MEMBER_PAGE/sub/_sub_user_house_car.ftl" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/MEMBER_PAGE/sub/_sub_user_info.ftl" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/assets/htsw/MEMBER/load.js" charset="UTF-8" />
