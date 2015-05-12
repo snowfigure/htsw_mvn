@@ -3,7 +3,6 @@ package org.htsw.config;
 import com.jfinal.config.*;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.c3p0.C3p0Plugin;
-import com.jfinal.plugin.ehcache.EhCachePlugin;
 import org.htsw.controller.adminpage.AdminPageArticleController;
 import org.htsw.controller.adminpage.AdminPageIndexController;
 import org.htsw.controller.adminpage.AdminPageMenuController;
@@ -18,6 +17,7 @@ import org.htsw.controller.ueditor.UeditorIndexController;
 import org.htsw.model.*;
 import org.htsw.model.type.*;
 import org.htsw.model.user.*;
+import org.htsw.model.view.*;
 
 public class GlobalConfig extends JFinalConfig {
     /**
@@ -84,6 +84,8 @@ public class GlobalConfig extends JFinalConfig {
         arp.addMapping("c_webconfig", WebConfig.class);
 
 
+        arp.addMapping("apply", Apply.class);
+
         arp.addMapping("apply_degree_type", TypeDegree.class);
         arp.addMapping("apply_marry_status_type", TypeMarryStatus.class);
         arp.addMapping("apply_house_type", TypeHouse.class);
@@ -95,6 +97,10 @@ public class GlobalConfig extends JFinalConfig {
         arp.addMapping("apply_salary_give_type", TypeSalaryGive.class);
         arp.addMapping("apply_enterprise_type", TypeEnterprise.class);
         arp.addMapping("apply_enterprise_place_type", TypeEnterprisePlace.class);
+        arp.addMapping("apply_use_time_type", TypeUseTime.class);
+        arp.addMapping("apply_use_for_type", TypeUseFor.class);
+        arp.addMapping("apply_pay_way", TypePayWay.class);
+        arp.addMapping("apply_product_type", TypeProduct.class);
 
 
         arp.addMapping("user_bank", User_Bank.class);
@@ -104,6 +110,18 @@ public class GlobalConfig extends JFinalConfig {
         arp.addMapping("user_house", User_House.class);
         arp.addMapping("user_enterprise", User_Enterprise.class);
         arp.addMapping("user_info", User_Info.class);
+
+
+        arp.addMapping("v_apply", VApplyShort.class);
+        arp.addMapping("v_user_info", VUserInfo.class);
+        arp.addMapping("v_user_bank", VUserBank.class);
+        arp.addMapping("v_user_company", VUserCompany.class);
+        arp.addMapping("v_user_house", VUserHouse.class);
+        arp.addMapping("v_user_car", VUserCar.class);
+        arp.addMapping("v_user_enterprise", VUserEnterprise.class);
+
+
+
 
 
     }

@@ -275,3 +275,134 @@ div {
     width: 680px;
     padding: 30px 0 20px;
 }
+
+.w-1000 {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.ban02 {
+    min-width: 350px;
+    position: absolute;
+}
+
+.h-430 {
+    height: 430px;
+    position: relative;
+}
+
+.ban02 .top {
+    font-size: 45px;
+    font-weight: bold;
+    color: #444;
+    height: 50px;
+    width: 100%;
+    line-height: 50px;
+    margin-top: -15px;
+    margin-bottom: 15px;
+}
+
+.ban02 .bottom {
+    font-size: 20px;
+    color: #737373;
+    width: 100%;
+    line-height: 30px;
+}
+
+.jgzj {
+    background: #fff;
+    height: 430px;
+}
+
+.jgzj-cont {
+    background: url("/img/money.jpg") 640px center no-repeat;
+}
+
+.jgzj .ban02 {
+    top: 170px;
+    left: 70px;
+}
+
+.sstx {
+    background: #EDEDED;
+    height: 430px;
+}
+
+.sstx-cont {
+    background: url("/img/time-red.png") 40px center no-repeat;
+}
+
+.sstx .ban02 {
+    top: 170px;
+    left: 540px;
+}
+
+.yyqt {
+    background: #fff;
+    height: 430px;
+}
+
+.yyqt-cont {
+    background: url("/img/percent-red.jpg") 640px center no-repeat;
+}
+
+.yyqt .ban02 {
+    top: 170px;
+    left: 70px;
+}
+
+.jrwm {
+    background: #EDEDED;
+    padding-top: 20px;
+}
+
+.jrwm-cont {
+    background: url("/assets/img/arrow_right.png") center top no-repeat;
+}
+
+.jrwm .box1 {
+    top: 160px;
+    left: 70px;
+}
+
+.jrwm .box2 {
+    top: 160px;
+    left: 500px;
+}
+
+.jrwm .ban02 .top {
+    color: #F18D22;
+}
+
+.jrwm .ban02 a.links {
+    display: inline-block;
+    width: 170px;
+    height: 48px;
+    text-align: center;
+    line-height: 48px;
+    background: #FF4401;
+    color: #fff;
+    font-size: 26px;
+    margin-top: 30px;
+}
+
+.jrwm .box1 a.links {
+    margin-top: 60px;
+}
+
+.jrwm .ban02 .color {
+    color: #F18D22
+}
+
+.jrwm .ban02 .join {
+    font-size: 20px;
+    position: absolute;
+    width: 500px;
+}
+
+.ban02 .bottom {
+    font-size: 20px;
+    color: #737373;
+    width: 500px;
+    line-height: 30px;
+}

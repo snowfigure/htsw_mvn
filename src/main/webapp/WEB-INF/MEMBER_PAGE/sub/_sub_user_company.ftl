@@ -21,6 +21,14 @@
                                value="${USER_COMPANY.name!}">
                     </div>
                 </div>
+                <div class="form-group">
+                    <label for="user_Company.name" class="col-sm-2 control-label">前工作单位名称</label>
+
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="user_Company.pre_company" placeholder="请输入前工作单位名称"
+                               value="${USER_COMPANY.pre_company!}">
+                    </div>
+                </div>
 
                 <div class="form-group">
                     <label for="user_Company.company_type_id" class="col-sm-2 control-label">单位性质</label>

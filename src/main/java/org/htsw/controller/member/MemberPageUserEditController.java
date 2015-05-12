@@ -3,11 +3,47 @@ package org.htsw.controller.member;
 
 import com.jfinal.aop.Before;
 import com.jfinal.kit.JsonKit;
+import com.sf.kits.coder.Base64;
+import com.sf.kits.coder.DesUtil;
+import org.apache.shiro.SecurityUtils;
 import org.htsw.config.ManagerInterceptor;
+import org.htsw.config.ShiroConfig;
+import org.htsw.model.Apply;
+import org.htsw.model.User;
 import org.htsw.model.user.*;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @Before(ManagerInterceptor.class)
 public class MemberPageUserEditController extends MemberController {
+    public void saveApply() {
+        User loginUser = (User) SecurityUtils.getSubject().
+                getSession().getAttribute(ShiroConfig.SHIRO_LOGIN_USER);
+        int uid = loginUser.getInt("id");
+        keepModel(Apply.class);
+        Apply apply = getModel(Apply.class);
+        if (apply.get("id") == null) {
+            apply.set("uid", uid);
+            Date now = new Date();
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//可以方便地修改日期格式
+            String apply_time = dateFormat.format(now);
+            apply.set("apply_time", apply_time);
+            apply.save();
+        }
+
+        int apply_id = apply.get("id");
+        try {
+            String _des = DesUtil.encrypt(apply_id + "");
+            String _base64 = Base64.getBase64(_des);
+            String APPLY_ID = _base64.replaceAll("/+", "@").replaceAll("//", "#").replaceAll("=", "$");
+            apply.set("_apply_id_", APPLY_ID);
+        } catch (Exception ex) {
+            System.err.println(ex.toString());
+        }
+        renderText(apply.update() + "");
+    }
+
     /**
      * 更新用户基本信息
      */

@@ -18,7 +18,7 @@ import java.security.Security;
 public class AESCoder {
 
     /**
-     * 迷药算法
+     * AES密钥算法
      */
     private static final String KEY_ALGORITHM = "AES";
     /**
