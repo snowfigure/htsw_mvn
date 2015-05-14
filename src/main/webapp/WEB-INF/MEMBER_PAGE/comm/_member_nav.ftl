@@ -11,6 +11,9 @@
     <a href="/member/applyLog.html">
         <ul id="applyLog">申请记录</ul>
     </a>
+    <a href="/member/password.html">
+        <ul id="password">修改密码</ul>
+    </a>
     <br/><br/><br/>
     <br/><br/><br/>
     <br/><br/><br/>

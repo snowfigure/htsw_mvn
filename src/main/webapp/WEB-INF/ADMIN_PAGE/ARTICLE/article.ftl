@@ -59,7 +59,7 @@
 <footer>
     <hr>
 
-    <p class="am-padding-left">© 2014 AllMobilize, Inc. Licensed under MIT license.</p>
+    <p class="am-padding-left">© 2015 恒通商务信息咨询有限公司</p>
 </footer>
 <script type="text/javascript" charset="utf-8" src="/assets/easyui/jquery.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="/assets/ueditor/ueditor.config.js"></script>

@@ -23,4 +23,15 @@ public class VApplyShort extends Model<VApplyShort> {
             return list.get(0);
         }
     }
+
+    /**
+     * 统计申请状态
+     * @param uid  用户编号
+     * @param status 申请状态
+     * @return
+     */
+    public int countBYUidAndStatus(int uid, int status){
+        List<VApplyShort> list = me.find("select * from v_apply where uid=? and status=?", uid,status);
+        return list.size();
+    }
 }

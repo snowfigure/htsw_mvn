@@ -3,7 +3,37 @@
 <div id="main-content">
     <#include '/WEB-INF/MEMBER_PAGE/comm/_member_nav.ftl'/>
     <div id="right-article">
-        <div id="right-article-content">
+        <div id="right-article-content" style="margin-top: -17px">
+
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">个人贷款情况</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="btn btn-primary col-sm-3" style="text-align: left">总申请：${APPLY_TOTAL !} 笔</div>
+                    <div class="col-sm-1"></div>
+                    <div style="clear: both"></div><br>
+
+                    <div class="btn btn-danger col-sm-3" style="text-align: left">申请失败：${APPLY_STATUS_1 !} 笔</div>
+                    <div class="col-sm-1"></div>
+
+                    <div style="clear: both"></div><br>
+                    <div class="btn btn-info col-sm-3" style="text-align: left">等待资料审核：${APPLY_STATUS_2 !} 笔</div>
+                    <div class="col-sm-1"></div>
+                    <div class="btn btn-info col-sm-3" style="text-align: left">等待面签：${APPLY_STATUS_3 !} 笔</div>
+                    <div class="col-sm-1"></div>
+                    <div class="btn btn-info col-sm-3" style="text-align: left">等待资金发放：${APPLY_STATUS_4 !} 笔</div>
+                    <div class="col-sm-1"></div>
+                    <div style="clear: both"></div><br>
+                    <div class="btn btn-success col-sm-3" style="text-align: left">申请成功：${APPLY_STATUS_6 !} 笔</div>
+                    <div class="col-sm-1"></div>
+                    <div class="btn btn-success col-sm-3" style="text-align: left">资金已发放：${APPLY_STATUS_5 !} 笔</div>
+                    <div class="col-sm-1"></div>
+                    <div class="btn btn-success col-sm-3" style="text-align: left">还款已结束：${APPLY_STATUS_6 !} 笔</div>
+                    <div class="col-sm-1"></div>
+
+                </div>
+            </div>
 
 
         </div>

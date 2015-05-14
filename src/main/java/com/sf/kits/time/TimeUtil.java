@@ -65,11 +65,14 @@ public class TimeUtil {
      * @param date Date
      * @return String
      */
+    public static String format2(Date date) {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+        return simpleDateFormat.format(date);
+    }
     public static String format(Date date) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年MM月dd日 E HH:mm:ss.SSS");
         return simpleDateFormat.format(date);
     }
-
     public static String format(Calendar date, String pattern) {
         if (date == null) {
             return "0000-00-00 00:00:00";

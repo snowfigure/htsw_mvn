@@ -31,7 +31,7 @@
         <div id="jgzj_p" class="ban02">
             <p class="top">贷款额度高、范围大</p>
 
-            <p class="bottom">贷款额度最低x万元，最高xx万元。</p>
+            <p class="bottom">贷款额度最低x万元，最高xx万元，</p>
 
             <p class="bottom" style="font-size: 15px">精英贷、工薪贷、恒楼贷、商户贷、企业贷，总有一款适合你。</p>
         </div>

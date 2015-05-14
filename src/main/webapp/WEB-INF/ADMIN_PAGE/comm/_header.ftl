@@ -35,6 +35,9 @@
                         <a href="/fpc/logout">
                             <span class="am-icon-power-off"></span> 退出
                         </a>
+                        <a href="/admin/index">
+                            <span class="am-icon-user"></span> 个人中心
+                        </a>
                     </li>
                 </ul>
             </li>

@@ -4,6 +4,7 @@ package org.htsw.controller.member;
 import com.jfinal.aop.Before;
 import com.sf.kits.coder.Base64;
 import com.sf.kits.coder.DesUtil;
+import com.sf.kits.coder.MD5;
 import org.apache.shiro.SecurityUtils;
 import org.htsw.config.ManagerInterceptor;
 import org.htsw.config.ShiroConfig;
@@ -19,7 +20,47 @@ public class MemberPageIndexController extends MemberController {
     public void index() {
         setAttr("title", "用户首页");
         setAttr("pageFlag", "index");
+
+
+        User loginUser = (User) SecurityUtils.getSubject().
+                getSession().getAttribute(ShiroConfig.SHIRO_LOGIN_USER);
+        int uid = loginUser.getInt("id");
+
+        setAttr("APPLY_TOTAL",VApplyShort.me.getList(uid).size());
+        setAttr("APPLY_STATUS_1",VApplyShort.me.countBYUidAndStatus(uid, 1));
+        setAttr("APPLY_STATUS_2",VApplyShort.me.countBYUidAndStatus(uid, 2));
+        setAttr("APPLY_STATUS_3",VApplyShort.me.countBYUidAndStatus(uid, 3));
+        setAttr("APPLY_STATUS_4",VApplyShort.me.countBYUidAndStatus(uid, 4));
+        setAttr("APPLY_STATUS_5",VApplyShort.me.countBYUidAndStatus(uid, 5));
+        setAttr("APPLY_STATUS_6",VApplyShort.me.countBYUidAndStatus(uid, 6));
+        setAttr("APPLY_STATUS_7",VApplyShort.me.countBYUidAndStatus(uid, 7));
+
+
         render("/WEB-INF/MEMBER_PAGE/member_index.ftl");
+    }
+
+    public void password(){
+        setAttr("title", "修改密码");
+        setAttr("pageFlag", "password");
+        render("/WEB-INF/MEMBER_PAGE/member_password.ftl");
+    }
+
+    public  void updatePsd(){
+        String pre_password = getPara("pre_password");
+        String new_password = getPara("new_password");
+        User loginUser = (User) SecurityUtils.getSubject().
+                getSession().getAttribute(ShiroConfig.SHIRO_LOGIN_USER);
+        pre_password = MD5.getMD5ofStr(pre_password).toLowerCase();
+        String psd = loginUser.get("password");
+
+        if(!psd.equals(pre_password)){
+            renderText("ERROR");
+            return;
+        }
+        new_password = MD5.getMD5ofStr(new_password).toLowerCase();
+
+        loginUser.set("password", new_password);
+        renderText(loginUser.update() + "");
     }
 
     public void edit() {

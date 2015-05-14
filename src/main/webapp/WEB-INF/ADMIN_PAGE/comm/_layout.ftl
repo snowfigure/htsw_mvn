@@ -16,6 +16,8 @@
     <!-- EasyUI -->
     <link rel="stylesheet" type="text/css" href="/assets/easyui/themes/bootstrap/easyui.css">
     <link rel="stylesheet" type="text/css" href="/assets/easyui/themes/icon.css">
+
+    <link rel="stylesheet" type="text/css" href="/assets/htsw/admin_easyui.css">
 </head>
 <body>
 <!--[if lte IE 9]>
