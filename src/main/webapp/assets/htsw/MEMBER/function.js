@@ -193,7 +193,7 @@ $(document).ready(function () {
                             $("[id='" + save_btn_id + "_alert']").css('visibility', 'visible');
                         }
                         else {
-                            $("[id='" + save_btn_id + "_alert']").html("保存失败。");
+                            $("[id='" + save_btn_id + "_alert']").html("保存失败,有非法输入。");
                             $("[id='" + save_btn_id + "_alert']").css('visibility', 'visible');
                         }
 

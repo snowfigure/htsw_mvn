@@ -28,16 +28,16 @@ public class User_Contact extends Model<User_Contact> {
         } else {
             User_Contact user_contact = list.get(0);
 
-            String spouse_company_telephone = HtswUtil.numberFormatToCNStyle(user_contact.get("spouse_company_telephone").toString());
+            String spouse_company_telephone = HtswUtil.numberFormatToCNStyle(user_contact.getStr("spouse_company_telephone"));
             user_contact.set("spouse_company_telephone", spouse_company_telephone);
 
-            String relative_house_telephone = HtswUtil.numberFormatToCNStyle(user_contact.get("relative_house_telephone").toString());
+            String relative_house_telephone = HtswUtil.numberFormatToCNStyle(user_contact.getStr("relative_house_telephone"));
             user_contact.set("relative_house_telephone", relative_house_telephone);
 
-            String workmate_company_telephone = HtswUtil.numberFormatToCNStyle(user_contact.get("workmate_company_telephone").toString());
+            String workmate_company_telephone = HtswUtil.numberFormatToCNStyle(user_contact.getStr("workmate_company_telephone"));
             user_contact.set("workmate_company_telephone", workmate_company_telephone);
 
-            String other_house_telephone = HtswUtil.numberFormatToCNStyle(user_contact.get("other_house_telephone").toString());
+            String other_house_telephone = HtswUtil.numberFormatToCNStyle(user_contact.getStr("other_house_telephone"));
             user_contact.set("other_house_telephone", other_house_telephone);
 
             return user_contact;

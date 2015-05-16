@@ -18,7 +18,7 @@ public class VUserHouse extends Model<VUserHouse> {
             return new VUserHouse();
         } else {
             VUserHouse vUserHouseCar = list.get(0);
-            String hbt = HtswUtil.timeFormatToCNStyle(vUserHouseCar.get("buy_time").toString());
+            String hbt = HtswUtil.timeFormatToCNStyle(vUserHouseCar.getStr("buy_time"));
             vUserHouseCar.set("buy_time", hbt);
 
             return vUserHouseCar;

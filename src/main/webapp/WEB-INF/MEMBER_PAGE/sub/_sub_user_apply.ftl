@@ -114,6 +114,8 @@
                     <a href="/zifei.html" target="_blank">资费说明</a>、
                     <a href="/commques.html" target="_blank">常见问题</a>
                 </p>
+
+                <p>6、如果提示<span style="color: red">保存失败</span>，请检查输入的<span style="color: red">数据是否合理</span>。</p>
             </div>
 
         </form>

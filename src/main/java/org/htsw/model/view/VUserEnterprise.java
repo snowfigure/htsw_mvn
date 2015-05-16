@@ -18,10 +18,10 @@ public class VUserEnterprise extends Model<VUserEnterprise> {
             return new VUserEnterprise();
         } else {
             VUserEnterprise vUserEnterprise = list.get(0);
-            String establish_time = HtswUtil.timeFormatToCNStyle(vUserEnterprise.get("establish_time").toString());
+            String establish_time = HtswUtil.timeFormatToCNStyle(vUserEnterprise.getStr("establish_time"));
             vUserEnterprise.set("establish_time", establish_time);
 
-            String place_rent_endtime = HtswUtil.timeFormatToCNStyle(vUserEnterprise.get("place_rent_endtime").toString());
+            String place_rent_endtime = HtswUtil.timeFormatToCNStyle(vUserEnterprise.getStr("place_rent_endtime"));
             vUserEnterprise.set("place_rent_endtime", place_rent_endtime);
 
             return vUserEnterprise;

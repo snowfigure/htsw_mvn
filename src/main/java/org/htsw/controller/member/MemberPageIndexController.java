@@ -13,6 +13,7 @@ import org.htsw.model.User;
 import org.htsw.model.user.*;
 import org.htsw.model.view.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Before(ManagerInterceptor.class)
@@ -114,6 +115,27 @@ public class MemberPageIndexController extends MemberController {
 //        renderJson(list);
     }
 
+    public void getApplyLog(){
+
+        try {
+            String _apply_id_ = getPara();
+            System.out.println("_apply_id_:" + _apply_id_);
+
+            String _base64 = _apply_id_.replaceAll("@", "/+").replaceAll("#", "//").replaceAll("$", "=");
+            String _des = Base64.getFromBase64(_base64);
+            String _apply_id = DesUtil.decrypt(_des);
+            int apply_id = new Integer(_apply_id);
+
+            System.out.println("apply_id:" + apply_id);
+
+            renderJson(VApplyLog.me.getLogList(apply_id));
+
+        } catch (Exception ex) {
+            System.err.println(ex.toString());
+           renderJson(new ArrayList<VApplyLog>());
+        }
+    }
+
     public void applyDetail() {
         setAttr("title", "申请信息详情");
 
@@ -128,8 +150,8 @@ public class MemberPageIndexController extends MemberController {
 
             User loginUser = (User) SecurityUtils.getSubject().
                     getSession().getAttribute(ShiroConfig.SHIRO_LOGIN_USER);
-            int uid = loginUser.getInt("id");
 
+            int uid = loginUser.getInt("id");
             //不匹配跳转404
             if (!Apply.me.isChecked(uid, apply_id)) {
                 renderError(404);
@@ -143,7 +165,7 @@ public class MemberPageIndexController extends MemberController {
 //            System.out.println(JsonKit.toJson(VUserHouse.me.findByUid(uid)));
 //            System.out.println(JsonKit.toJson(VUserInfo.me.findByUid(uid)));
 
-            setAttr("V_APPLY", VApplyShort.me.findByUid(uid));
+            setAttr("V_APPLY", VApplyShort.me.findByApplyID(apply_id));
             setAttr("V_USER_BANK", VUserBank.me.findByUid(uid));
             setAttr("V_USER_COMPANY", VUserCompany.me.findByUid(uid));
             setAttr("V_USER_ENTERPRISE", VUserEnterprise.me.findByUid(uid));

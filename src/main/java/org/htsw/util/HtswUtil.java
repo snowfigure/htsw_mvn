@@ -10,7 +10,10 @@ public class HtswUtil {
      * @return 2012年11月
      */
     public static String timeFormatToCNStyle(String shortStyle) {
-        if (shortStyle == null) return "";
+        if (shortStyle == null || "".equals(shortStyle.trim()) || "null".equals(shortStyle.trim().toLowerCase())) return "";
+        if(!shortStyle.contains("-")){
+            return  shortStyle ;
+        }
         String[] _times = shortStyle.split("-");
         if (_times.length != 2) {
             return shortStyle;

@@ -19,30 +19,30 @@ public class VUserInfo extends Model<VUserInfo> {
         } else {
 
             VUserInfo vUserInfo = list.get(0);
-            String aat = HtswUtil.timeFormatToCNStyle(vUserInfo.get("address_arrive_time").toString());
+            String aat = HtswUtil.timeFormatToCNStyle(vUserInfo.getStr("address_arrive_time"));
             vUserInfo.set("address_arrive_time", aat);
 
-            String cat = HtswUtil.timeFormatToCNStyle(vUserInfo.get("city_arrive_time").toString());
+            String cat = HtswUtil.timeFormatToCNStyle(vUserInfo.getStr("city_arrive_time"));
             vUserInfo.set("city_arrive_time", cat);
 
             String _format = "■有<u>&nbsp;&nbsp;%s&nbsp;&nbsp;</u>&nbsp;□无";
             String format = "□有<u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>&nbsp;■无";
 
-            String qq_number = vUserInfo.get("qq_number").toString();
+            String qq_number = vUserInfo.getStr("qq_number");
             if (qq_number == null) {
                 vUserInfo.set("qq_number", format);
             } else {
                 vUserInfo.set("qq_number", String.format(_format, qq_number));
             }
 
-            String wechat_number = vUserInfo.get("wechat_number").toString();
+            String wechat_number = vUserInfo.getStr("wechat_number");
             if (wechat_number == null) {
                 vUserInfo.set("wechat_number", format);
             } else {
                 vUserInfo.set("wechat_number", String.format(_format, wechat_number));
             }
 
-            String address_telephone = HtswUtil.numberFormatToCNStyle(vUserInfo.get("address_telephone").toString());
+            String address_telephone = HtswUtil.numberFormatToCNStyle(vUserInfo.getStr("address_telephone"));
             vUserInfo.set("address_telephone", address_telephone);
 
 

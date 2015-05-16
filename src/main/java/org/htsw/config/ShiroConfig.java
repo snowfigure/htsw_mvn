@@ -49,10 +49,10 @@ public class ShiroConfig {
     public static final HashMap<Integer, String> loginHtmlMap = new HashMap<Integer, String>();
 
     static {
-        loginHtmlMap.put(0, "<a href=\"login.html\">\n" +
+        loginHtmlMap.put(0, "<a href=\"/login.html\">\n" +
                 "                <input type=\"button\" value=\"登陆\">\n" +
                 "            </a>\n" +
-                "            <a href=\"register.html\">\n" +
+                "            <a href=\"/register.html\">\n" +
                 "                <input type=\"button\" value=\"注册\">\n" +
                 "            </a>");
         loginHtmlMap.put(2, "<div style=\"padding: 20px\">\n" +

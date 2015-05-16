@@ -18,7 +18,8 @@ public class VUserCar extends Model<VUserCar> {
             return new VUserCar();
         } else {
             VUserCar vUserCar = list.get(0);
-            String hbt = (vUserCar.get("buy_time").toString().split("-"))[0] + "&nbsp;&nbsp;年";
+
+            String hbt = HtswUtil.timeFormatToCNStyle(vUserCar.getStr("buy_time"));
             vUserCar.set("buy_time", hbt);
 
             int type = vUserCar.get("have_car_type");

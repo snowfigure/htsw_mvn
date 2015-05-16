@@ -83,23 +83,23 @@
         <div class="key" style="width: 110px;">户籍所在地</div>
         <div class="value" style="width: 87px;text-align: right;border-right: 0">${V_USER_INFO.huji_province!}</div>
         <div class="value" style="width: 10px;border-right: 0;">省</div>
-        <div class="value" style="width: 65px;text-align: right;border-right: 0">${V_USER_INFO.huji_town!}</div>
+        <div class="value" style="width: 80px;text-align: right;border-right: 0">${V_USER_INFO.huji_town!}</div>
         <div class="value" style="width: 10px;border-right: 0;border-left:0;">市</div>
         <div class="value"
              style="width: 82px;text-align: right;border-right: 0;border-left:0 ">${V_USER_INFO.huji_city!}</div>
         <div class="value" style="width: 10px;border-right: 0;border-left:0;">区</div>
-        <div class="value" style="width: 520px;border-left:0 ;">${V_USER_INFO.hukou_area_detail!}&nbsp;</div>
+        <div class="value" style="width: 505px;border-left:0 ;">${V_USER_INFO.hukou_area_detail!}&nbsp;</div>
         <div id="clear"></div>
 
         <div class="key" style="width: 110px;">现住宅地址</div>
         <div class="value" style="width: 87px;text-align: right;border-right: 0">${V_USER_INFO.address_province!}</div>
         <div class="value" style="width: 10px;border-right: 0;">省</div>
-        <div class="value" style="width: 65px;text-align: right;border-right: 0">${V_USER_INFO.address_city!}</div>
+        <div class="value" style="width: 80px;text-align: right;border-right: 0">${V_USER_INFO.address_city!}</div>
         <div class="value" style="width: 10px;border-right: 0;border-left:0;">市</div>
         <div class="value"
              style="width: 82px;text-align: right;border-right: 0;border-left:0 ">${V_USER_INFO.address_town!}</div>
         <div class="value" style="width: 10px;border-right: 0;border-left:0;">区</div>
-        <div class="value" style="width: 379px;border-left:0 ;border-right: 0;">${V_USER_INFO.address_area_detail!}
+        <div class="value" style="width: 364px;border-left:0 ;border-right: 0;">${V_USER_INFO.address_area_detail!}
             &nbsp;</div>
         <div class="value" style="width: 133px;border-left:0 ;">□ 与户口所在地一致</div>
         <div id="clear"></div>
@@ -174,12 +174,12 @@
         <div class="key" style="width: 110px;">房产地址</div>
         <div class="value" style="width: 87px;text-align: right;border-right: 0">${V_USER_HOUSE.address_province!}</div>
         <div class="value" style="width: 10px;border-right: 0;">省</div>
-        <div class="value" style="width: 65px;text-align: right;border-right: 0">${V_USER_HOUSE.address_city!}</div>
+        <div class="value" style="width: 80px;text-align: right;border-right: 0">${V_USER_HOUSE.address_city!}</div>
         <div class="value" style="width: 10px;border-right: 0;border-left:0;">市</div>
         <div class="value"
              style="width: 82px;text-align: right;border-right: 0;border-left:0 ">${V_USER_HOUSE.address_town!}</div>
         <div class="value" style="width: 10px;border-right: 0;border-left:0;">区</div>
-        <div class="value" style="width: 379px;border-left:0 ;border-right: 0;">
+        <div class="value" style="width: 364px;border-left:0 ;border-right: 0;">
             &nbsp;${V_USER_HOUSE.address_detail!}</div>
         <div class="value" style="width: 133px;border-left:0 ;">□ 与现住宅地址一致</div>
         <div id="clear"></div>
@@ -237,14 +237,14 @@
         <div class="value" style="width: 87px;text-align: right;border-right: 0">${V_USER_COMPANY.address_p!}
             &nbsp;</div>
         <div class="value" style="width: 10px;border-right: 0;">省</div>
-        <div class="value" style="width: 65px;text-align: right;border-right: 0">${V_USER_COMPANY.address_c!}
-            &nbsp;</div>
+        <div class="value" style="width: 80px;text-align: right;border-right: 0">${V_USER_COMPANY.address_c!}
+            </div>
         <div class="value" style="width: 10px;border-right: 0;border-left:0;">市</div>
         <div class="value"
              style="width: 82px;text-align: center;border-right: 0;border-left:0 ">${V_USER_COMPANY.address_t!}
             &nbsp;</div>
         <div class="value" style="width: 10px;border-right: 0;border-left:0;">区</div>
-        <div class="value" style="width: 520px;border-left:0 ;">&nbsp;${V_USER_COMPANY.company_address_detail!}</div>
+        <div class="value" style="width: 505px;border-left:0 ;">&nbsp;${V_USER_COMPANY.company_address_detail!}</div>
         <div id="clear"></div>
 
         <div class="key" style="width: 110px;">工资发放形式</div>

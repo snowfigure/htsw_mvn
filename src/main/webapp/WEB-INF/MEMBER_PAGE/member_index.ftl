@@ -34,7 +34,33 @@
 
                 </div>
             </div>
+            <div class="panel panel-primary">
+                <div class="panel-body">
+                    <p>标签颜色定义</p>
 
+                    <p>
+                        <span class="btn btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        客户贷款总申请次数统计
+                    </p>
+
+                    <p>
+                        <span class="btn btn-danger">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        客户贷款申请已拒绝统计
+                    </p>
+
+                    <p>
+                        <span class="btn btn-success">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        客户贷款申请成功统计（包括资金已发放、贷款已还清两类）
+                    </p>
+
+                    <p>
+                        <span class="btn btn-info">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        客户贷款申请信息处理中统计（包括 资金申请资料等待审核、等待用户到公司面签、等待资金下发 三类）
+                    </p>
+
+
+                </div>
+            </div>
 
         </div>
         <div id="div-clear"></div>

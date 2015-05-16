@@ -19,10 +19,10 @@ public class VUserCompany extends Model<VUserCompany> {
         } else {
             VUserCompany vUserCompany = list.get(0);
 
-            String join_time = HtswUtil.timeFormatToCNStyle(vUserCompany.get("join_time").toString());
+            String join_time = HtswUtil.timeFormatToCNStyle(vUserCompany.getStr("join_time"));
             vUserCompany.set("join_time", join_time);
 
-            String company_telephone = HtswUtil.numberFormatToCNStyle(vUserCompany.get("company_telephone").toString());
+            String company_telephone = HtswUtil.numberFormatToCNStyle(vUserCompany.getStr("company_telephone"));
             vUserCompany.set("company_telephone", company_telephone);
 
             return vUserCompany;

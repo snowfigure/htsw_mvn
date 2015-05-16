@@ -61,7 +61,10 @@
                                     <label class="col-sm-4" style="text-align: right">申请状态：</label>
                                     <span class="col-sm-8">${APPLY.valid_status!} </span>
                                 </div>
-                                <div class="col-sm-10"></div>
+                                <div class="col-sm-8"></div>
+                                <a target="_blank" type="button col-sm-2" class="btn btn-link"
+                                   onclick="showLog('${APPLY._apply_id_!}')">审核日志</a>
+
                                 <a target="_blank" type="button col-sm-2" class="btn btn-link"
                                    href="/member/applyDetail/${APPLY._apply_id_!}">查看详情</a>
 
@@ -78,4 +81,69 @@
     </div>
     <div id="div-clear"></div>
 </div>
+
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="log_modal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 900px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="log_title">
+                    审核日志详情
+                </h4>
+            </div>
+            <div class="modal-body" id="log_detail">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default"
+                        data-dismiss="modal">关闭
+                </button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal -->
+</div>
+
+
+
 </@layout>
+
+<script type="text/javascript">
+    function showLog(apply_id) {
+        $.ajax({
+            type: "post",
+            url: "/member/getApplyLog/" + apply_id,
+            dataType: 'json',
+            success: function (data) {
+                var html =
+                        "<table>" +
+                        "<tr>" +
+                        "<th style='width: 200px'>处理时间</th>" +
+                        "<th style='width: 550px'>处理信息</th>" +
+                        "<th style='width: 150px'>操作人</th> " +
+                        "</tr>";
+
+                for (var i = 0; i < data.length; i++) {
+                    var log = data[i];
+                    html +=
+                            "<tr>" +
+                            "<td style='width: 150px'>" + log.deal_time + "</td>" +
+                            "<td style='width: 550px'>" + log.deal_log + "</td>" +
+                            "<td style='width: 150px'>" + log.name + "</td> " +
+                            "</tr>";
+                }
+                html += "</table>";
+                $("#log_detail").html(html);
+
+                $('#log_modal').modal('show');
+            }
+        });
+
+    }
+</script>

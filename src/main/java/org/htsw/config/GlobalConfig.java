@@ -85,6 +85,7 @@ public class GlobalConfig extends JFinalConfig {
 
 
         arp.addMapping("apply", Apply.class);
+        arp.addMapping("apply_log", ApplyLog.class);
 
         arp.addMapping("apply_degree_type", TypeDegree.class);
         arp.addMapping("apply_marry_status_type", TypeMarryStatus.class);
@@ -113,6 +114,7 @@ public class GlobalConfig extends JFinalConfig {
 
 
         arp.addMapping("v_apply", VApplyShort.class);
+        arp.addMapping("v_apply_log", VApplyLog.class);
         arp.addMapping("v_user_info", VUserInfo.class);
         arp.addMapping("v_user_bank", VUserBank.class);
         arp.addMapping("v_user_company", VUserCompany.class);

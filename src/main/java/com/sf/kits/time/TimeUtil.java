@@ -66,7 +66,7 @@ public class TimeUtil {
      * @return String
      */
     public static String format2(Date date) {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return simpleDateFormat.format(date);
     }
     public static String format(Date date) {
