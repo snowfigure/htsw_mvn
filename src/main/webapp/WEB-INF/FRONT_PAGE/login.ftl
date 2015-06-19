@@ -13,7 +13,7 @@
             <input type="password" id="password"/><br/>
             <div id="forget-psd" >
 
-                <a>忘记密码?</a>
+                <#--<a>忘记密码?</a>-->
             </div>
             <div class="alert alert-info" id="login-alert" style="margin: 0 ;visibility: hidden"></div>
             <input type="button" id="submit-login" value="登　　　　录"/>
@@ -50,7 +50,7 @@
                        }
                        if(data =="falseLogin")
                        {
-                           $('#login-alert').html("用户名与密码不匹配。");
+                           $('#login-alert').html("用户名与密码不匹配（或用户已被禁用/删除）。");
                            $('#login-alert').css('visibility','visible');
                            return ;
                        }

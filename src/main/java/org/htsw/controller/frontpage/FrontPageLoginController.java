@@ -91,11 +91,22 @@ public class FrontPageLoginController extends SystemCtroller {
             renderText("EXIST_EMAIL");
             return;
         }
+
+        String time = (new Date()).getTime() + "";
+
+        Date now = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//可以方便地修改日期格式
+
+
+        String reg_time = dateFormat.format(now);
+
         User newUser = new User();
         Boolean flag = newUser.set("username", username)
                 .set("password", password)
                 .set("email", email)
-                .set("enable", 0)
+                .set("reg_valid", time)
+                .set("create_time", reg_time)
+                .set("enable", 0)     //
                 .set("delete_status", 0).save();
 
         //member用户的角色分配

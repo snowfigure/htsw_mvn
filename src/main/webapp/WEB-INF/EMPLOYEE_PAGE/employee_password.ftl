@@ -109,7 +109,7 @@
                     url: '/employee/updatePsd/',
                     dataType: 'text',
                     data: {
-                        pre_password:hex_md5(hex_md5(pre_password)+pre_password),
+                        pre_password:hex_md5(hex_md5(pre_password)+username),
                         new_password:hex_md5(hex_md5(new_password)+new_password)
                     },
                     success: function (data) {

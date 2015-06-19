@@ -40,6 +40,7 @@ public class MemberPageIndexController extends MemberController {
         render("/WEB-INF/MEMBER_PAGE/member_index.ftl");
     }
 
+
     public void password(){
         setAttr("title", "修改密码");
         setAttr("pageFlag", "password");
@@ -112,7 +113,6 @@ public class MemberPageIndexController extends MemberController {
         List<VApplyShort> list = VApplyShort.me.getList(uid);
         setAttr("V_APPLY_SHORT_LIST", list);
         render("/WEB-INF/MEMBER_PAGE/member_applyLog.ftl");
-//        renderJson(list);
     }
 
     public void getApplyLog(){
@@ -157,13 +157,6 @@ public class MemberPageIndexController extends MemberController {
                 renderError(404);
                 return;
             }
-
-//            System.out.println(JsonKit.toJson(VApplyShort.me.findByUid(uid)));
-//            System.out.println(JsonKit.toJson(VUserBank.me.findByUid(uid)));
-//            System.out.println(JsonKit.toJson(VUserCompany.me.findByUid(uid)));
-//            System.out.println(JsonKit.toJson(VUserEnterprise.me.findByUid(uid)));
-//            System.out.println(JsonKit.toJson(VUserHouse.me.findByUid(uid)));
-//            System.out.println(JsonKit.toJson(VUserInfo.me.findByUid(uid)));
 
             setAttr("V_APPLY", VApplyShort.me.findByApplyID(apply_id));
             setAttr("V_USER_BANK", VUserBank.me.findByUid(uid));

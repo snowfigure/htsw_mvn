@@ -40,7 +40,7 @@ public class MemberPageUserEditController extends MemberController {
                 ApplyLog applyLog = new ApplyLog();
                 applyLog.set("deal_log", "用户贷款申请。");
                 applyLog.set("deal_time", apply_time);
-                applyLog.set("apply_id",apply.get("id"));
+                applyLog.set("apply_id", apply.get("id"));
                 applyLog.save();
             }
             int apply_id = apply.get("id");
@@ -64,6 +64,14 @@ public class MemberPageUserEditController extends MemberController {
             keepModel(User_Info.class);
             User_Info user_info = getModel(User_Info.class);
 //       System.out.println(JsonKit.toJson(user_info));
+            String realName = user_info.get("realname");
+            User loginUser = (User) SecurityUtils.getSubject().
+                    getSession().getAttribute(ShiroConfig.SHIRO_LOGIN_USER);
+            int uid = loginUser.getInt("id");
+            User user = User.dao.findById(uid);
+            if (null != user) {
+                user.set("name", realName).update();
+            }
             renderText(user_info.update() + "");
         } catch (Exception ex) {
             renderText("false");

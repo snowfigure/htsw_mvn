@@ -55,7 +55,7 @@ public class EmployeePageIndexController extends EmployeeController {
         User loginUser = (User) SecurityUtils.getSubject().
                 getSession().getAttribute(ShiroConfig.SHIRO_LOGIN_USER);
         pre_password = MD5.getMD5ofStr(pre_password).toLowerCase();
-        String psd = loginUser.get("password");
+        String psd = loginUser.get("password").toString().toLowerCase();
 
         if (!psd.equals(pre_password)) {
             renderText("ERROR");

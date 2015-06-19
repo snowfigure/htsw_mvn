@@ -5,6 +5,7 @@ import com.jfinal.kit.JsonKit;
 import com.sf.kits.time.TimeUtil;
 import org.htsw.config.ManagerInterceptor;
 import org.htsw.model.WebConfig;
+import org.htsw.util.StaticFactory;
 
 import java.util.Date;
 
@@ -25,7 +26,10 @@ public class AdminPageWebConfigController extends AdminController {
         keepModel(WebConfig.class);
         WebConfig webConfig = getModel(WebConfig.class);
         String updateTime = TimeUtil.format2(new Date());
-        webConfig.set("update_time",updateTime);
-        renderText(webConfig.update() + "");
+        webConfig.set("update_time", updateTime);
+        boolean flag = webConfig.update();
+        StaticFactory.clearWebConfig();
+        StaticFactory.setSystemConfigMap();
+        renderText(flag + "");
     }
 }

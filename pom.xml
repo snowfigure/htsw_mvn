@@ -67,16 +67,7 @@
       <version>1.9</version>
     </dependency>
 
-    <!-- Jetty JSP：根据 Dependency Hierarchy 视图拆分成了七个 dependency，
-            - 方便项目以及便于 导出 war的在jetty与tomcat间无缝迁移
-            - Dependencies: http://mvnrepository.com/artifact/org.eclipse.jetty/jetty-jsp
-	<dependency>
-		<groupId>org.eclipse.jetty</groupId>
-		<artifactId>jetty-jsp</artifactId>
-		<version>8.1.8.v20121106</version>
-		<scope>provided</scope>
-	</dependency>
-	 -->
+
     <dependency><!-- jetty-server-8.1.8 开发时JSP 支持 -->
       <groupId>org.eclipse.jetty.orbit</groupId>
       <artifactId>javax.servlet.jsp</artifactId>
@@ -248,15 +239,12 @@
     </dependency>
 
     <dependency>
-      <groupId> org.apache.geronimo.specs</groupId>
-      <artifactId>geronimo-javamail_1.4_spec </artifactId>
-      <version>1.3</version>
+      <groupId>javax.mail</groupId>
+      <artifactId>mail</artifactId>
+      <version>1.4.4</version>
     </dependency>
-    <dependency>
-      <groupId>org.apache.commons</groupId>
-      <artifactId>commons-email</artifactId>
-      <version>1.2</version>
-    </dependency>
+
+
     <dependency>
       <groupId>commons-fileupload</groupId>
       <artifactId>commons-fileupload</artifactId>

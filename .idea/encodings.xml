@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/main/java/com/sf/kits/mail/SimpleMailBean.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/sf/kits/mail/SimpleMailSendUtil.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/htsw/controller/adminpage/AdminApplyController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/htsw/util/StaticFactory.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/a_little_config.txt" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/EMPLOYEE_PAGE/employee_deaLog.ftl" charset="UTF-8" />
   </component>
 </project>

@@ -2,116 +2,34 @@
 <div class="admin-sidebar am-offcanvas" id="admin-offcanvas">
     <div class="am-offcanvas-bar admin-offcanvas-bar">
         <ul class="am-list admin-sidebar-list">
-
             <li>
-                <a target="_blank" href="/index.html">
+                <a target="_self" href="/admin/index.html">
                     <span class="am-icon-home"></span> 首页
                 </a>
             </li>
-
-
-
-            <li class="admin-parent">
-                <a class="am-cf am-collapsed" id="_setting" data-am-collapse="{target: '#collapse-nav-setting'}">
-                    <span class="am-icon-cogs"></span>
-                    系统管理
-                    <span class="am-icon-angle-right am-fr am-margin-right"></span>
+            <li>
+                <a target="_self" href="/admin/userInfo">
+                    <span class="am-icon-user"></span>　用户管理
                 </a>
-                <ul class="am-list am-collapse admin-sidebar-sub" id="collapse-nav-setting">
-                    <li>
-                        <a target="_self" href="/admin/article/index?aid=1">
-                            <span class="am-icon-building"></span>　公司简介
-                        </a>
-                    </li>
-                    <li>
-                        <a target="_self" href="/admin/article/index?aid=4">
-                            <span class="am-icon-heartbeat"></span>　联系我们
-                        </a>
-                    </li>
-                    <li>
-                        <a target="_self" href="/admin/article/index?aid=3">
-                            <span class="am-icon-heartbeat"></span>　人才招聘
-                        </a>
-                    </li>
-                    <li>
-                        <a target="_self" href="/admin/article/index?aid=2">
-                            <span class="am-icon-lock"></span>　 隐私声明
-                        </a>
-                    </li>
-                    <li>
-                        <a target="_self" href="/admin/webconfig">
-                            <span class="am-icon-cogs"></span>　系统参数
-                        </a>
-                    </li>
-                </ul>
             </li>
-
-
-            <li class="admin-parent">
-                <a class="am-cf am-collapsed" id="_product" data-am-collapse="{target: '#collapse-nav-product'}">
-                    <span class="am-icon-cogs"></span>
-                    产品管理
-                    <span class="am-icon-angle-right am-fr am-margin-right"></span>
+            <li>
+                <a target="_self" href="/admin/apply">
+                    <span class="am-icon-inbox"></span>　申请管理
                 </a>
-                <ul class="am-list am-collapse admin-sidebar-sub" id="collapse-nav-product">
-                    <li>
-                        <a target="_self" href="/admin/article/index?aid=5">
-                            <span class="am-icon-heartbeat"></span> 　产品介绍
-                        </a>
-                    </li>
-                    <li>
-                        <a target="_self" href="/admin/article/index?aid=6">
-                            <span class="am-icon-heartbeat"></span> 　新手入门
-                        </a>
-                    </li>
-                    <li>
-                        <a target="_self" href="/admin/article/index?aid=7">
-                            <span class="am-icon-heartbeat"></span> 　资费说明
-                        </a>
-                    </li>
-                    <li>
-                        <a target="_self" href="/admin/article/index?aid=8">
-                            <span class="am-icon-heartbeat"></span> 　常见问题
-                        </a>
-                    </li>
-                </ul>
             </li>
-
-
-            <li class="admin-parent">
-                <a class="am-cf am-collapsed" id="_product" data-am-collapse="{target: '#collapse-nav-member'}">
-                    <span class="am-icon-cogs"></span>
-                    成员管理
-                    <span class="am-icon-angle-right am-fr am-margin-right"></span>
+            <li>
+                <a target="_self" href="/admin/article/index?aid=1">
+                    <span class="am-icon-building"></span>　网站编辑
                 </a>
-                <ul class="am-list am-collapse admin-sidebar-sub" id="collapse-nav-member">
-                    <li>
-                        <a target="_self" href="/admin/article/index?aid=1">
-                            <span class="am-icon-building"></span> 　管理员
-                        </a>
-                    </li>
-                    <li>
-                        <a target="_self" href="/admin/article/index?aid=1">
-                            <span class="am-icon-building"></span> 　业务员
-                        </a>
-                    </li>
-                    <li>
-                        <a target="_self" href="/admin/article/index?aid=1">
-                            <span class="am-icon-building"></span> 　客户
-                        </a>
-                    </li>
-                </ul>
             </li>
-
-
+            <li>
+                <a target="_self" href="/admin/webconfig">
+                    <span class="am-icon-cogs"></span>　系统参数
+                </a>
+            </li>
 
         </ul>
-        <div class="am-panel am-panel-default admin-sidebar-panel">
-            <div class="am-panel-bd">
-                <p><span class="am-icon-tag"></span>使用规范</p>
-                <p style="text-indent:2em">页面刷新请在地址栏回车，请勿使用刷新或者F5按钮，页面缓存会导致结果不准确。 </p>
-            </div>
-        </div>
+
         <div class="am-panel am-panel-default admin-sidebar-panel">
             <div class="am-panel-bd">
                 <p><span class="am-icon-tag"></span> 技术支持</p>
