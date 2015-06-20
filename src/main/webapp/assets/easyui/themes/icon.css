@@ -91,3 +91,32 @@
 .icon-large-chart{
 	background:url('icons/large_chart.png') no-repeat center center;
 }
+
+
+
+/* add */
+.icon-setting0{
+	background:url('icons/setting0.png') no-repeat center center;
+}
+.icon-setting1{
+	background:url('icons/setting1.png') no-repeat center center;
+}
+.icon-setting2{
+	background:url('icons/setting2.png') no-repeat center center;
+}
+.icon-articles{
+	background:url('icons/articles.png') no-repeat center center;
+}
+
+.icon-user_cos{
+	background:url('icons/user_cos.png') no-repeat center center;
+}
+.icon-user_adm{
+	background:url('icons/user_adm.png') no-repeat center center;
+}
+.icon-user_emp{
+	background:url('icons/user_emp.png') no-repeat center center;
+}
+.icon-blog{
+	background:url('icons/blog.png') no-repeat center center;
+}

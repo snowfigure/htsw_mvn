@@ -13,9 +13,9 @@ import java.util.List;
 public class VUserInfoAdmin extends Model<VUserInfoAdmin> {
     public static final VUserInfoAdmin me = new VUserInfoAdmin();
 
-    public Page<VUserInfoAdmin> paginate(int rows,int page)
+    public Page<VUserInfoAdmin> paginate(int rows,int page, String search)
     {
         return me.paginate(page, rows, "select * ",
-                " from v_userinfo_admin")  ;
+                " from v_userinfo_admin" + search)  ;
     }
 }

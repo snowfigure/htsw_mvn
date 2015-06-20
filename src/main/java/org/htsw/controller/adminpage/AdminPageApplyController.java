@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by snowfigure on 2015/6/12.
  */
-public class AdminApplyController extends AdminController  {
+public class AdminPageApplyController extends AdminController  {
     public void index(){
         render("/WEB-INF/ADMIN_PAGE/APPLY/apply.ftl");
     }

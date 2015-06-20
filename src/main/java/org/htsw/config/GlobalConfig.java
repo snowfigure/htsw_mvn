@@ -46,7 +46,7 @@ public class GlobalConfig extends JFinalConfig {
         me.add("/admin/article", AdminPageArticleController.class);
         me.add("/admin/webconfig", AdminPageWebConfigController.class);
         me.add("/admin/userInfo", AdminPageUserController.class);
-        me.add("/admin/apply", AdminApplyController.class);
+        me.add("/admin/apply", AdminPageApplyController.class);
 
         //业务员3
         me.add("/employee", EmployeePageIndexController.class);

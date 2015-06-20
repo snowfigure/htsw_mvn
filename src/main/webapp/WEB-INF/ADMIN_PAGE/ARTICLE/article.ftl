@@ -19,30 +19,14 @@
 <body>
 
 <!--[if lte IE 9]>
-<p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，Amaze UI 暂不支持。 请 <a href="http://browsehappy.com/" target="_blank">升级浏览器</a>
+<p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，Amaze UI 暂不支持。 请 <a href="../browser.html" target="_blank">升级浏览器</a>
     以获得更好的体验！</p>
 <![endif]-->
 
-<#include '/WEB-INF/ADMIN_PAGE/comm/_header.ftl'/>
 
 <div class="am-cf admin-main">
-<#include '/WEB-INF/ADMIN_PAGE/comm/_sidebar.ftl'/>
-
     <!-- content start -->
     <div class="admin-content"  style="min-height: 580px">
-        <div class="btn-group" style="margin: 10px 0 0 20px">
-            <a id="EM_1" class="btn btn-default" href="/admin/article/index?aid=1">&nbsp;&nbsp;公司简介&nbsp;&nbsp;</a>
-            <a id="EM_4" class="btn btn-default" href="/admin/article/index?aid=4">&nbsp;&nbsp;联系我们&nbsp;&nbsp;</a>
-            <a id="EM_3" class="btn btn-default" href="/admin/article/index?aid=3">&nbsp;&nbsp;人才招聘&nbsp;&nbsp;</a>
-            <a id="EM_2" class="btn btn-default" href="/admin/article/index?aid=2">&nbsp;&nbsp;隐私声明&nbsp;&nbsp;</a>
-            <a id="EM_5" class="btn btn-default" href="/admin/article/index?aid=5">&nbsp;&nbsp;产品介绍&nbsp;&nbsp;</a>
-            <a id="EM_6" class="btn btn-default" href="/admin/article/index?aid=6">&nbsp;&nbsp;新手入门&nbsp;&nbsp;</a>
-            <a id="EM_7" class="btn btn-default" href="/admin/article/index?aid=7">&nbsp;&nbsp;资费说明&nbsp;&nbsp;</a>
-            <a id="EM_8" class="btn btn-default" href="/admin/article/index?aid=8">&nbsp;&nbsp;常见问题&nbsp;&nbsp;</a>
-
-        </div>
-        <div style="clear: both"></div>
-
         <div class="am-cf am-padding">
 
             <div class="panel panel-default">
@@ -80,13 +64,7 @@
 
     </div>
 </div>
-<a class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
 
-<footer>
-    <hr>
-
-    <p class="am-padding-left">© 2015 恒通商务信息咨询有限公司</p>
-</footer>
 <script type="text/javascript" charset="utf-8" src="/assets/easyui/jquery.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="/assets/ueditor/ueditor.config.js"></script>
 <script type="text/javascript" charset="utf-8" src="/assets/ueditor/ueditor.all.js"></script>
@@ -100,19 +78,6 @@
 <script type="text/javascript">
 
     $(function () {
-        $("#EM_${aid!}").addClass("active");
-
-        var $fullText = $('.admin-fullText');
-        $('#admin-fullscreen').on('click', function() {
-            $.AMUI.fullscreen.toggle();
-        });
-
-        $(document).on($.AMUI.fullscreen.raw.fullscreenchange, function() {
-            $.AMUI.fullscreen.isFullscreen ? $fullText.text('关闭全屏') : $fullText.text('开启全屏');
-        });
-
-
-
         var ueditor = UE.getEditor('myEditor');
         ueditor.addListener('blur', function () {
             $('#focush2').html('编辑器失去焦点了')

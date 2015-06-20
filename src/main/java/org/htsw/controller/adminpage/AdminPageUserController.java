@@ -29,6 +29,22 @@ public class AdminPageUserController extends AdminController {
         render("/WEB-INF/ADMIN_PAGE/USER/userInfo.ftl");
     }
 
+    private String searchDeal(String user_uname,String user_name,String user_email){
+        String search = "";
+        if(StringUtils.isNotEmpty(user_uname)){
+            search += String.format(" and username like  '%s' ","%" +user_uname + "%");
+        }
+        if(StringUtils.isNotEmpty(user_name)){
+            search += String.format(" and realname like  '%s' ","%" +user_name + "%");
+        }
+        if(StringUtils.isNotEmpty(user_email)){
+            search += String.format(" and email like  '%s' ","%" +user_email + "%");
+        }
+
+
+        return search;
+    }
+
     /**
      * 用户管理（Admin）
      */
@@ -36,7 +52,19 @@ public class AdminPageUserController extends AdminController {
         int page = getParaToInt("page", 1);
         int rows = getParaToInt("rows", 10);
 
-        Page<VUserInfoAdmin> nav_page = VUserInfoAdmin.me.paginate(rows,page);
+        String user_uname = getPara("user_uname", "");
+        String user_name = getPara("user_name","");
+        String user_email = getPara("user_email","");
+
+        String search = searchDeal(user_uname,user_name,user_email);
+
+        if(StringUtils.isNotEmpty(search)){
+            search = " where 1=1 " + search;
+        }
+
+        System.out.println(search);
+
+        Page<VUserInfoAdmin> nav_page = VUserInfoAdmin.me.paginate(rows,page, search);
 
         DataGridJson json = new DataGridJson();
         json.setRows(nav_page.getList());
@@ -48,14 +76,26 @@ public class AdminPageUserController extends AdminController {
         int page = getParaToInt("page", 1);
         int rows = getParaToInt("rows", 10);
         String cat = getPara("cat", "e_all");
-        String search = "";
+
+        String user_uname = getPara("user_uname", "");
+        String user_name = getPara("user_name", "");
+        String user_email = getPara("user_email","");
+
+        String search = searchDeal(user_uname,user_name,user_email);
 
         if ("e_disabled".equals(cat)) {
-            search = "where enable=1";
+            search = " where enable=1 " + search;
         }
         if ("e_enable".equals(cat)) {
-            search = "where enable=0";
+            search = " where enable=0 " + search;
         }
+
+        if(StringUtils.isNotEmpty(search)){
+            search = " where 1=1 " + search;
+        }
+
+        System.out.println(search);
+
         Page<VUserInfoEmployee> nav_page = VUserInfoEmployee.me.paginate(rows,page,search);
         List<VUserInfoEmployee> list = nav_page.getList();
         DataGridJson json = new DataGridJson();
@@ -110,15 +150,25 @@ public class AdminPageUserController extends AdminController {
 
         String cat = getPara("cat", "m_all");
 
-        String search = "";
+        String user_uname = getPara("user_uname", "");
+        String user_name = getPara("user_name", "");
+        String user_email = getPara("user_email","");
+
+        String search = searchDeal(user_uname,user_name,user_email);
 
 
         if ("m_unchecked".equals(cat)) {
-            search = "where reg_valid<>'checked' or reg_valid is null";
+            search = "where reg_valid<>'checked' or reg_valid is null " + search;
         }
         if ("m_checked".equals(cat)) {
-            search = "where reg_valid='checked'";
+            search = "where reg_valid='checked' "  + search;
         }
+
+        if(StringUtils.isNotEmpty(search)){
+            search = " where 1=1 " + search;
+        }
+
+        System.out.println(search);
 
         Page<VUserInfoMember> nav_page = VUserInfoMember.me.paginate(rows,page,search);
         List<VUserInfoMember> list = nav_page.getList();

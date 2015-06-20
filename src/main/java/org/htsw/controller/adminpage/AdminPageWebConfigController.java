@@ -17,10 +17,22 @@ import java.util.Date;
 @Before(ManagerInterceptor.class)
 public class AdminPageWebConfigController extends AdminController {
     public void index() {
+        int type = getParaToInt("type",0);
+        setAttr("type",type);
         render("/WEB-INF/ADMIN_PAGE/system_config.ftl");
     }
     public void list(){
-        renderJson(WebConfig.me.find("select * from c_webconfig"));
+        int type = getParaToInt("type",0);
+        if(type==0){
+            renderJson(WebConfig.me.find("select * from c_webconfig"));
+        }else if(type==1){
+            renderJson(WebConfig.me.find("select * from c_webconfig where id between 1 and 99"));
+        }else if(type==2){
+            renderJson(WebConfig.me.find("select * from c_webconfig where id between 101 and 199"));
+        }else if(type==3){
+            renderJson(WebConfig.me.find("select * from c_webconfig where id between 201 and 299"));
+        }
+
     }
     public void edit(){
         keepModel(WebConfig.class);

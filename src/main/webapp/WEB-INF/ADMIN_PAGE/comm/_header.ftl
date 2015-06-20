@@ -28,12 +28,7 @@
                     <span class="am-icon-power-off"></span> 退出
                 </a>
             </li>
-            <li class="am-hide-sm-only">
-                <a href="javascript:;" id="admin-fullscreen">
-                    <span class="am-icon-arrows-alt"></span>
-                    <span class="admin-fullText">开启全屏</span>
-                </a>
-            </li>
+
         </ul>
     </div>
 </header>

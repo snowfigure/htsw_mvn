@@ -13,9 +13,17 @@ public class AdminPageIndexController extends AdminController {
     public void index() {
 //        Subject subject = SecurityUtils.getSubject();
 
-        render("/WEB-INF/ADMIN_PAGE/index.ftl");
+//        render("/WEB-INF/ADMIN_PAGE/index.ftl");
 
-//        render("/WEB-INF/ADMIN_PAGE/admin.ftl");
+        render("/WEB-INF/ADMIN_PAGE/EASYUI_PAGE/index.ftl");
+    }
+
+    public void fnf() {
+//        Subject subject = SecurityUtils.getSubject();
+
+//        render("/WEB-INF/ADMIN_PAGE/index.ftl");
+
+        render("/WEB-INF/ADMIN_PAGE/404.ftl");
     }
     public void editPassword(){
         render("/WEB-INF/ADMIN_PAGE/admin_password.ftl");

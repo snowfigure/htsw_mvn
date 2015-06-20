@@ -27,10 +27,8 @@
     以获得更好的体验！</p>
 <![endif]-->
 
-    <#include '/WEB-INF/ADMIN_PAGE/comm/_header.ftl'/>
 
 <div class="am-cf admin-main">
-    <#include '/WEB-INF/ADMIN_PAGE/comm/_sidebar.ftl'/>
 
     <!-- content start -->
     <div class="admin-content">
@@ -40,12 +38,7 @@
 
 </div>
 
-<a class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
 
-<footer>
-    <hr>
-    <p class="am-padding-left">© 2015 恒通商务信息咨询有限公司</p>
-</footer>
 
 <!--[if lt IE 9]>
 <script src="/assets/easyui/jquery.min.js"></script>
@@ -64,16 +57,6 @@
 <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
 
 
-<script type="text/javascript">
-        var $fullText = $('.admin-fullText');
-        $('#admin-fullscreen').on('click', function() {
-            $.AMUI.fullscreen.toggle();
-        });
-
-        $(document).on($.AMUI.fullscreen.raw.fullscreenchange, function() {
-            $.AMUI.fullscreen.isFullscreen ? $fullText.text('关闭全屏') : $fullText.text('开启全屏');
-        });
-</script>
 </body>
 </html>
 </#macro>
