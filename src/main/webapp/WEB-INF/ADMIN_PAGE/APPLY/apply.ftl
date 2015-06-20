@@ -106,15 +106,15 @@
         var status =  $("#status").val();
         var apply_user_name = $("#apply_user_name").val();
         var deal_user_name =  $("#deal_user_name").val();
-        var start_time = $("#start_time").combobox('getValue');
-        var end_time =   $("#end_time").combobox('getValue');
+//        var start_time = $("#start_time").combobox('getValue');
+//        var end_time =   $("#end_time").combobox('getValue');
         console.log(status + " # " + apply_user_name + " # " + deal_user_name + " # " + start_time + "  #" + end_time );
         $("#btn_search_submit").click(function(){
             status =  $("#status").val();
             apply_user_name = $("#apply_user_name").val();
             deal_user_name =  $("#deal_user_name").val();
-            start_time =  $("#start_time").combobox('getValue');
-            end_time =  $("#end_time").combobox('getValue');
+//            start_time =  $("#start_time").combobox('getValue');
+//            end_time =  $("#end_time").combobox('getValue');
             console.log(status + "  " + apply_user_name + "  " + deal_user_name + "  " + start_time + "  " + end_time );
         });
         var columns = [[
@@ -123,7 +123,7 @@
             {field: 'apply_user_name', title: '申请人(真实姓名)', width: $(this).width() * 0.08},
             {field: 'apply_product_type_name', title: '申请类型', width: $(this).width() * 0.08},
             {field: 'money', title: '申请金额', width: $(this).width() * 0.06},
-            {field: 'apply_user_time_type_name', title: '使用时间', width: $(this).width() * 0.06},
+            {field: 'apply_use_time_type_name', title: '使用时间', width: $(this).width() * 0.06},
             {field: 'apply_use_for_type_name', title: '支出类型', width: $(this).width() * 0.08},
             {field: 'month_payment', title: '月还款额', width: $(this).width() * 0.08},
             {field: 'apply_pay_way_type_name', title: '还款方式', width: $(this).width() * 0.06},
