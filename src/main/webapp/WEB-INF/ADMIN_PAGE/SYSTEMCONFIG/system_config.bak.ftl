@@ -125,7 +125,7 @@
                 title: title,
                 width: 350,
                 height: 200,
-                top: '250px',
+                top: '150px',
                 closed: false,
                 cache: false,
                 buttons: [{

@@ -47,6 +47,18 @@ public class MemberPageIndexController extends MemberController {
         render("/WEB-INF/MEMBER_PAGE/member_password.ftl");
     }
 
+    public void help(){
+        setAttr("title", "使用帮助 - 申请流程");
+        setAttr("pageFlag", "help");
+        render("/WEB-INF/MEMBER_PAGE/member_help.ftl");
+    }
+
+    public void fileUpload(){
+        setAttr("title", "资料上传");
+        setAttr("pageFlag", "fileUpload");
+        render("/WEB-INF/MEMBER_PAGE/member_fileUpload.ftl");
+    }
+
     public  void updatePsd(){
         String pre_password = getPara("pre_password");
         String new_password = getPara("new_password");

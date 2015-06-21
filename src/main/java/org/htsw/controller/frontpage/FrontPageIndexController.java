@@ -10,8 +10,11 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
 import org.htsw.config.ShiroConfig;
 import org.htsw.controller.SystemCtroller;
+import org.htsw.model.Apply;
 import org.htsw.model.Article;
 import org.htsw.model.User;
+import org.htsw.model.user.User_Contact;
+import org.htsw.model.view.*;
 import org.htsw.util.StaticFactory;
 
 import javax.mail.Address;
@@ -225,5 +228,4 @@ public class FrontPageIndexController extends SystemCtroller {
             return;
         }
     }
-
 }

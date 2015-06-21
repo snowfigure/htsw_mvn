@@ -42,12 +42,6 @@
                             <span class="am-icon-power-off"></span> 退出
                         </a>
                     </li>
-                    <li class="am-hide-sm-only">
-                        <a href="javascript:;" id="admin-fullscreen">
-                            <span class="am-icon-arrows-alt"></span>
-                            <span class="admin-fullText">开启全屏</span>
-                        </a>
-                    </li>
                 </ul>
             </div>
         </header>
@@ -56,14 +50,20 @@
 
 
 </div>
+
+<div data-options="region:'south',split:true" style="overflow: hidden;height: 30px;text-align: center">
+    版权所有：<a href="${systemConfig['WEBURL']!}" style="color: black">${systemConfig['COMPANYNAME']!}</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;备案号：${systemConfig['ICP']!}
+</div>
+
 <div data-options="region:'west',split:true,title:'模块导航'"
      style="width:150px;padding:5px;">
     <ul id='nav'></ul>
 </div>
 <div data-options="region:'center',title:'欢迎使用后台'" id="content">
     <div id='tabs'>
-        <div id='main' title="首页">
-            主要区域
+        <div id='main' title="管理中心">
+            <#include '/WEB-INF/ADMIN_PAGE/index.ftl'/>
         </div>
     </div>
 </div>
@@ -114,7 +114,6 @@
         $('#nav').tree({
             url: "/assets/htsw/menu.json",
             loadFilter: function (data) {
-                console.log(data);
                 return data.list;
             },
             onClick: function (node) {

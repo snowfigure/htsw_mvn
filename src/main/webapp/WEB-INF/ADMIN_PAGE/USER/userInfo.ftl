@@ -10,60 +10,40 @@
     <script type="text/javascript" src="/assets/easyui/jquery.easyui.min.js"></script>
     <script type="text/javascript" src="/assets/easyui/locale/easyui-lang-zh_CN.js"></script>
 </head>
-<body>
-
-
-<div class="am-cf admin-main">
-
-    <!-- content start -->
-    <div class="admin-content">
-
-        <div class="am-cf am-padding">
-
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">
-                        <span class="am-icon-user am-icon-sm"></span>
-                        <strong class="am-text-primary am-text-lg"> 用户管理</strong>
-                    </h3>
-                </div>
-                <div class="panel-body">
-                    <div class="am-g">
-                        <div class="am-u-sm-12">
-                            <div style="clear: both"></div>
-                            <div class="form-horizontal" role="form" >
-                                <div class="col-sm-3">
-                                    <label for="user_uname">用户登陆名称：</label>
-                                    <input id="user_uname" class="easyui-textbox" data-options="iconCls:'icon-user'" style="width:150px;height: 25px">
-                                </div>
-                                <div class="col-sm-3">
-                                    <label for="user_name">用户真实姓名：</label>
-                                    <input id="user_name" class="easyui-textbox" data-options="iconCls:'icon-user'" style="width:150px;height: 25px">
-                                </div>
-                                <div class="col-sm-3">
-                                    <label for="user_email">用户注册邮箱：</label>
-                                    <input id="user_email" class="easyui-textbox" data-options="iconCls:'icon-user'" style="width:150px;height: 25px">
-                                </div>
-                                <div class="col-sm-3">
-                                    <a id="btn_search_submit" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'" style="width:100px">查询</a>
-                                </div>
-                            </div>
-
-
-
-                            <div style="clear: both"></div>
-                            <br/>
-                            <table id="userInfo_dg"></table>
-
-                        </div>
-                    </div>
-
-                </div>
-
-
+<body class="easyui-layout" style="text-align:left;padding: 15px">
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            <span class="am-icon-user am-icon-sm"></span><strong class="am-text-primary am-text-lg"> 用户管理</strong>
+        </h3>
+    </div>
+    <div class="panel-body">
+        <div style="clear: both"></div>
+        <div class="form-horizontal" role="form" >
+            <div class="col-sm-3">
+                <label for="user_uname">用户登陆名称：</label>
+                <input id="user_uname" class="easyui-textbox" data-options="iconCls:'icon-user'" style="width:150px;height: 25px">
             </div>
-            <div style="clear: both"></div>
+            <div class="col-sm-3">
+                <label for="user_name">用户真实姓名：</label>
+                <input id="user_name" class="easyui-textbox" data-options="iconCls:'icon-user'" style="width:150px;height: 25px">
+            </div>
+            <div class="col-sm-3">
+                <label for="user_email">用户注册邮箱：</label>
+                <input id="user_email" class="easyui-textbox" data-options="iconCls:'icon-user'" style="width:150px;height: 25px">
+            </div>
+            <div class="col-sm-3">
+                <a id="btn_search_submit" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'" style="width:100px">查询</a>
+            </div>
         </div>
+
+
+
+        <div style="clear: both"></div>
+        <br/>
+        <table id="userInfo_dg"></table>
+        <div style="clear: both"></div>
+
 
         <div id='detail'>
             <br/>
@@ -88,40 +68,30 @@
             </form>
 
         </div>
-        <div style="clear: both"></div>
-        <div class="am-g">
-            <div style="clear: both"></div>
-            <div class="am-panel am-panel-default admin-sidebar-panel">
-                <div class="am-panel-bd">
-                    <p><span class="am-icon-tag"></span> 修改规范</p>
 
-                    <p></p>
-
-                    <p>1、可以添加新业务员账号、禁用已有业务员账号、修改业务员密码；</p>
-
-                    <p>2、请勿随意删除管理员和客户信息；</p>
-
-                    <p>3、默认初始化密码是<span style="color: red">1234567890</span>； </p>
-
-                    <p>4、新建业务员和重置业务员密码时，业务员登陆密码是<span style="color: red">默认密码</span>；</p>
-
-                    <p>5、用户登录名<span style="color: red">唯一且不可变更</span>。</p>
-
-                    <p>6、如有任何问题，请联系开发人员。</p>
-
-                    <p></p>
-                </div>
-            </div>
-        </div>
     </div>
-    <!-- content end -->
+    <div class="panel-footer">
+        <p><span class="am-icon-tag"></span> 修改规范</p>
 
+        <p></p>
+
+        <p>1、可以添加新业务员账号、禁用已有业务员账号、修改业务员密码；</p>
+
+        <p>2、请勿随意删除管理员和客户信息；</p>
+
+        <p>3、默认初始化密码是<span style="color: red">1234567890</span>； </p>
+
+        <p>4、新建业务员和重置业务员密码时，业务员登陆密码是<span style="color: red">默认密码</span>；</p>
+
+        <p>5、用户登录名<span style="color: red">唯一且不可变更</span>。</p>
+
+        <p>6、如有任何问题，请联系开发人员。</p>
+
+        <p></p>
+    </div>
 </div>
 
 
-<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-<script type="text/javascript" src="/assets/easyui/jquery.easyui.min.js"></script>
-<script src="/assets/bootstrap/js/bootstrap.min.js"></script>
 <script src="/assets/ext/md5.js"></script>
 <script type="text/javascript">
     $(function () {
@@ -206,6 +176,7 @@
         var url =  '/admin/userInfo/${type!}';
         if (type == "employee") {
             $('#userInfo_dg').datagrid({
+                title:' ',
                 url:url,
                 columns: columns,
                 singleSelect: true,//是否单选
@@ -220,6 +191,7 @@
             });
         } else if (type == "member"){
             $('#userInfo_dg').datagrid({
+                title:' ',
                 url: url,
                 columns: columns,
                 singleSelect: true,//是否单选
@@ -234,6 +206,7 @@
             });
         } else {
             $('#userInfo_dg').datagrid({
+                title:' ',
                 url: url,
                 columns: columns,
                 singleSelect: true,//是否单选

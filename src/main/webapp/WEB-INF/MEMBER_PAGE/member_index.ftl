@@ -5,7 +5,7 @@
     <div id="right-article">
         <div id="right-article-content" style="margin-top: -17px">
 
-            <div class="panel panel-info">
+            <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 class="panel-title">个人贷款情况</h3>
                 </div>

@@ -1,5 +1,6 @@
 package org.htsw.util;
 
+import org.apache.commons.lang.SystemUtils;
 import org.htsw.model.WebConfig;
 
 import java.util.HashMap;
@@ -33,6 +34,15 @@ public class StaticFactory {
         for (WebConfig wc : webConfigs) {
             webConfig.put(wc.getStr(WebConfig.K).toUpperCase(), wc.getStr(WebConfig.VAL));
         }
+        webConfig.put("OS_NAME", SystemUtils.OS_NAME);
+        webConfig.put("OS_ARCH", SystemUtils.OS_ARCH);
+        webConfig.put("OS_VERSION", SystemUtils.OS_VERSION);
+        webConfig.put("JAVA_VERSION", SystemUtils.JAVA_VERSION);
+        webConfig.put("JAVA_VENDOR", SystemUtils.JAVA_VENDOR);
+        webConfig.put("JAVA_HOME", SystemUtils.JAVA_HOME);
+        webConfig.put("USER_COUNTRY", SystemUtils.USER_COUNTRY);
+
+
     }
 
     /**

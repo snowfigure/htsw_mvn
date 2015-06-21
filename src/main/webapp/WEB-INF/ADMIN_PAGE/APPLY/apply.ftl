@@ -2,7 +2,6 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>综合管理平台 - ${systemConfig['WEBNAME']!}</title>
     <link rel="stylesheet" type="text/css" href="/assets/easyui/themes/default/easyui.css">
     <link rel="stylesheet" type="text/css" href="/assets/easyui/themes/icon.css">
     <link rel="stylesheet" type="text/css" href="/assets/amazeui_2.3.0/css/amazeui.css">
@@ -11,17 +10,16 @@
     <script type="text/javascript" src="/assets/easyui/jquery.easyui.min.js"></script>
     <script type="text/javascript" src="/assets/easyui/locale/easyui-lang-zh_CN.js"></script>
 </head>
-<body class="easyui-layout" style="text-align:left">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">
+<body class="easyui-layout" style="text-align:left;padding: 15px">
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">
                 <span class="am-icon-inbox am-icon-sm"></span><strong class="am-text-primary am-text-lg"> 申请管理</strong>
-            </h3>
-        </div>
-        <div class="panel-body">
-            <div class="am-g">
-                <div class="am-u-sm-12" style="margin: 10px 0 10px">
-                    <div class="form-horizontal" role="form" >
+        </h3>
+    </div>
+    <div class="panel-body">
+        <div style="clear: both"></div>
+        <div class="form-horizontal" role="form" >
                         <div class="col-sm-4">
                             <label for="status" >申请状态：</label>
                             <select id="status" class="easyui-combobox" style="width:220px;height: 25px">
@@ -59,11 +57,9 @@
                             <a id="btn_search_submit" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'" style="width:100px">查询</a>
                         </div>
                     </div>
-                </div>
                 <div style="clear: both"></div>
                 <table id="apply__dg"></table>
                 <br/>
-            </div>
 
         </div>
 
@@ -124,6 +120,7 @@
 
 
         $('#apply__dg').datagrid({
+            title:' ',
             url: '/admin/apply/search',
             columns: columns,
             singleSelect: true,//是否单选

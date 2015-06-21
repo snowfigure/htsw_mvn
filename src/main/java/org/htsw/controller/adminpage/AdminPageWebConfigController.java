@@ -19,7 +19,7 @@ public class AdminPageWebConfigController extends AdminController {
     public void index() {
         int type = getParaToInt("type",0);
         setAttr("type",type);
-        render("/WEB-INF/ADMIN_PAGE/system_config.ftl");
+        render("/WEB-INF/ADMIN_PAGE/SYSTEMCONFIG/system_config.ftl");
     }
     public void list(){
         int type = getParaToInt("type",0);

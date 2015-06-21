@@ -26,7 +26,7 @@ public class AdminPageIndexController extends AdminController {
         render("/WEB-INF/ADMIN_PAGE/404.ftl");
     }
     public void editPassword(){
-        render("/WEB-INF/ADMIN_PAGE/admin_password.ftl");
+        render("/WEB-INF/ADMIN_PAGE/PASSWORD/admin_password.ftl");
     }
 
     public void updatePsd() {
