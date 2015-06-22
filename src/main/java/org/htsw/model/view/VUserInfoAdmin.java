@@ -18,4 +18,7 @@ public class VUserInfoAdmin extends Model<VUserInfoAdmin> {
         return me.paginate(page, rows, "select * ",
                 " from v_userinfo_admin" + search)  ;
     }
+    public int coutSize(){
+        return me.find("select id from v_userinfo_admin").size();
+    }
 }

@@ -167,6 +167,10 @@
             {
                 text: "取消客户禁用",  iconCls: 'icon-undo',
                 handler: function () {   employeeManager("enable", "恢复");    }
+            },
+            {
+                text: "重置密码",           iconCls: 'icon-redo',
+                handler: function () {   employeeManager("clear_psd", "重置密码");  }
             }
         ];
 

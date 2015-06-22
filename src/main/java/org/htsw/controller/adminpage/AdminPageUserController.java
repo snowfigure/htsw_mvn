@@ -29,6 +29,19 @@ public class AdminPageUserController extends AdminController {
         render("/WEB-INF/ADMIN_PAGE/USER/userInfo.ftl");
     }
 
+    public void count() {
+        setAttr("admin",VUserInfoAdmin.me.coutSize());
+        setAttr("employee",VUserInfoEmployee.me.coutSize());
+        setAttr("member",VUserInfoMember.me.coutSize());
+
+        setAttr("member_unChecked",VUserInfoMember.me.countUnChecked());
+        setAttr("member_apply",VUserInfoMember.me.countCheckedAndApply());
+        setAttr("member_unApply",VUserInfoMember.me.countCheckedAndNotApply());
+
+
+        render("/WEB-INF/ADMIN_PAGE/USER/userCount.ftl");
+    }
+
     private String searchDeal(String user_uname,String user_name,String user_email){
         String search = "";
         if(StringUtils.isNotEmpty(user_uname)){

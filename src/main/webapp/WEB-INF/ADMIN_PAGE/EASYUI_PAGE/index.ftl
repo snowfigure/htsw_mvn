@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="/assets/amazeui_2.3.0/css/amazeui.css">
     <script type="text/javascript" src="/assets/easyui/jquery.min.js"></script>
     <script type="text/javascript" src="/assets/easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/build/dist/echarts-all.js"></script>
 </head>
 <body class="easyui-layout" style="text-align:left">
 <div region="north" border="false" style="overflow: hidden;height: 50px">
@@ -63,11 +64,12 @@
 <div data-options="region:'center',title:'欢迎使用后台'" id="content">
     <div id='tabs'>
         <div id='main' title="管理中心">
-            <#include '/WEB-INF/ADMIN_PAGE/index.ftl'/>
+
         </div>
     </div>
 </div>
 </body>
+
 
 
 <script type="application/javascript">
@@ -133,8 +135,14 @@
                 }
             }
         });
+
     });
 </script>
+
+
+
+
+
 
 
 </html>

@@ -4,12 +4,12 @@ import java.awt.*;
 import java.util.Random;
 
 /**
- * ��֤�����ɹ���
+ * 验证码工具类
  * Created by snowfigure on 2015/4/11.
  */
 public class VerifyCodeUtil {
     /**
-     * ��ʼ��֤�����
+     * 静态参数
      */
     private static final String chars = "23456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz";
     private static final int WIDTH = 150;

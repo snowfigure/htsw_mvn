@@ -7,6 +7,12 @@
           "id": "1",
           "iconCls": "icon-edit",
           "url": "apply"
+        },
+        {
+          "text": "申请统计",
+          "id": "1",
+          "iconCls": "icon-edit",
+          "url": "apply/count"
         }
       ],
       "text": "申请管理",
@@ -33,6 +39,12 @@
           "id": "1",
           "iconCls": "icon-user_cos",
           "url": "userInfo/?type=member"
+        },
+        {
+          "text": "用户信息统计",
+          "id": "1",
+          "iconCls": "icon-user_cos",
+          "url": "userInfo/count"
         }
       ],
       "text": "用户管理",

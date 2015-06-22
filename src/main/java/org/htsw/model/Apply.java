@@ -55,6 +55,27 @@ public class Apply extends Model<Apply> {
         return list.size();
     }
     /**
+     * 根据申请类型查看申请信息有多少条
+     * @param type
+     * @return
+     */
+    public int countByProductType(int type){
+        List<Apply> list = me.find("select id from apply where product_id=?",type);
+        return list.size();
+    }
+
+    /**
+     * 根据申请金额范围查看申请信息有多少条
+     * @param start
+     * @param end
+     * @return
+     */
+    public int countByMoney(double start,double end){
+        List<Apply> list = me.find("select id from apply where money between ? and ?",start,end);
+        return list.size();
+    }
+
+    /**
      * 根据状态查看申请信息有多少条
      * 1：审核未通过；2：等待资料审核；3：等待面签；4：等待资金发放
      * @param status

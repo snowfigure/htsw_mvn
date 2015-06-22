@@ -15,4 +15,7 @@ public class VUserInfoEmployee extends Model<VUserInfoEmployee> {
         return me.paginate(page, rows, "select * ",
                 " from v_userinfo_employee " + search)  ;
     }
+    public int coutSize(){
+        return me.find("select id from v_userinfo_employee").size();
+    }
 }

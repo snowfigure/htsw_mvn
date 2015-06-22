@@ -12,8 +12,7 @@
             <span>登录密码</span><br/>
             <input type="password" id="password"/><br/>
             <div id="forget-psd" >
-
-                <#--<a>忘记密码?</a>-->
+                <a href="forgetPsd.html">忘记密码?</a>
             </div>
             <div class="alert alert-info" id="login-alert" style="margin: 0 ;visibility: hidden"></div>
             <input type="button" id="submit-login" value="登　　　　录"/>
@@ -29,6 +28,14 @@
 <script src="/assets/ext/md5.js"></script>
 <script type="text/javascript">
     $(function () {
+        $('#password').bind({
+            "keypress":function(event){
+                if(event.keyCode == "13")
+                {
+                    $('#submit-login').click();
+                }
+            }
+        });
        $('#submit-login').bind({
            'click':function(){
                var username = $('#username').val();
@@ -42,6 +49,7 @@
                        password:hex_md5(hex_md5(password)+username),
                    },
                    success: function (data) {
+
                        if(data =="empty")
                        {
                            $('#login-alert').html("用户名和密码不能为空。");
@@ -54,10 +62,6 @@
                            $('#login-alert').css('visibility','visible');
                            return ;
                        }
-//                       window.setTimeout(
-//                               function(){
-//                                   location.href = "/login.html";
-//                               },3000);
                        if(data == "2")
                        {
                            window.open("/admin/index.html","_self");
@@ -78,6 +82,7 @@
                    }
                });
            }
+
        });
 
     });

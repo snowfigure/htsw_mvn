@@ -109,9 +109,12 @@
                        }
                        if(data =="SUCCESS")
                        {
-                           $('#valid_email_alert').html("Email认证成功，请退出后重新登录。");
+                           $('#valid_email_alert').html("Email认证成功，请重新<a href='/login.html'>登录</a>。");
                            $('#valid_email_alert').css('visibility','visible');
-                           disableAlert();
+                           window.setTimeout(
+                                   function(){
+                                       location.href = "/login.html";
+                                   },2000);
                            return false;
                        }
                    }

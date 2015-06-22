@@ -6,6 +6,7 @@ import com.sf.kits.coder.Base64;
 import com.sf.kits.coder.DesUtil;
 import com.sf.kits.coder.MD5;
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.Subject;
 import org.htsw.config.ManagerInterceptor;
 import org.htsw.config.ShiroConfig;
 import org.htsw.model.Apply;
@@ -74,6 +75,14 @@ public class MemberPageIndexController extends MemberController {
         new_password = MD5.getMD5ofStr(new_password).toLowerCase();
 
         loginUser.set("password", new_password);
+
+        //注销用户登陆
+        try {
+            SecurityUtils.getSubject().logout();
+        } catch (Exception ex) {
+
+        }
+
         renderText(loginUser.update() + "");
     }
 
