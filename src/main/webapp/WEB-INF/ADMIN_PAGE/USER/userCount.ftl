@@ -29,7 +29,7 @@
 <script>
     var myChart_user_zc = echarts.init(document.getElementById('user_zc'));
     var myChart_member_act = echarts.init(document.getElementById('member_act'));
-    var myChart_member_apply = echarts.init(document.getElementById('member_apply'));
+//    var myChart_member_apply = echarts.init(document.getElementById('member_apply'));
     var option_user_zc = {
         title : {
             text: '用户组成分类统计',

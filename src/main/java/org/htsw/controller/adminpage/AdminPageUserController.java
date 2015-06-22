@@ -132,12 +132,12 @@ public class AdminPageUserController extends AdminController {
         }
 
         if("enable".equals(type)){
-            user.set("enable",0).update();
+            user.set("enable",1).update();
             renderText("true");
             return;
         }
         if("disable".equals(type)){
-            user.set("enable",1).update();
+            user.set("enable",2).update();
             renderText("true");
             return;
         }

@@ -41,7 +41,7 @@ public class User extends Model<User> {
     public static final String LAST_LOGIN_IP = "last_login_ip"; // 最后登录IP
     public static final String DELETE_STATUS = "delete_status"; // 删除状态 默认：0
     // 删除：1
-    public static final String ENABLE = "enable"; // 是否停用 默认：0 停用：1
+    public static final String ENABLE = "enable"; // 是否停用 默认：1 停用：2
 
 
 

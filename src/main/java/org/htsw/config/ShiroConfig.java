@@ -127,7 +127,7 @@ public class ShiroConfig {
 
     // Shiro default
     /** */
-    public static final String DEFAULT_AUTHENTICATION_QUERY = "SELECT * FROM user WHERE enable = '0'  AND username = ?";
+    public static final String DEFAULT_AUTHENTICATION_QUERY = "SELECT * FROM user WHERE enable = '1'  AND username = ?";
     /** */
     public static final String DEFAULT_USER_ROLES_QUERY = "SELECT role_id FROM u_role_user WHERE user_id = ?";
     /**
