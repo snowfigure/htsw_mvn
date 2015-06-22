@@ -114,7 +114,7 @@ public class FrontPageLoginController extends SystemCtroller {
                 .set("email", email)
                 .set("reg_valid", time)
                 .set("create_time", reg_time)
-                .set("enable", 0)     //
+                .set("enable", 1)     //
                 .set("delete_status", 0).save();
 
         //member用户的角色分配
