@@ -12,7 +12,9 @@
     <link rel="stylesheet" href="/assets/amazeui_2.3.0/css/amazeui.min.css"/>
     <link rel="stylesheet" href="/assets/amazeui_2.3.0/css/admin.css">
     <link href="/assets/ueditor/themes/default/css/ueditor.min.css" type="text/css" rel="stylesheet">
-    <link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <#--<link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">-->
+    <link href="http://apps.bdimg.com/libs/bootstrap/3.1.1/css/bootstrap.css" rel="stylesheet">
+
 
 </head>
 
@@ -64,14 +66,18 @@
 
     </div>
 </div>
+<script type="text/javascript" charset="utf-8" src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js"></script>
 
-<script type="text/javascript" charset="utf-8" src="/assets/easyui/jquery.min.js"></script>
+
+<#--<script type="text/javascript" charset="utf-8" src="/assets/easyui/jquery.min.js"></script>-->
+
 <script type="text/javascript" charset="utf-8" src="/assets/ueditor/ueditor.config.js"></script>
-<script type="text/javascript" charset="utf-8" src="/assets/ueditor/ueditor.all.js"></script>
+<script type="text/javascript" charset="utf-8" src="/assets/ueditor/ueditor.all.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="/assets/ueditor/lang/zh-cn/zh-cn.js"></script>
 <script type="text/javascript" charset="utf-8" src="/assets/amazeui_2.3.0/js/amazeui.min.js"></script>
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-<script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+<#--<script src="/assets/bootstrap/js/bootstrap.min.js"></script>-->
+<script src="http://apps.bdimg.com/libs/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
 </body>
 </html>
