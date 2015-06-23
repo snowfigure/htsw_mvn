@@ -6,6 +6,7 @@ import com.sf.kits.coder.Base64;
 import com.sf.kits.coder.DesUtil;
 import com.sf.kits.coder.MD5;
 import com.sf.kits.time.TimeUtil;
+import org.apache.commons.lang.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
 import org.htsw.config.ManagerInterceptor;
@@ -321,6 +322,16 @@ public class EmployeePageIndexController extends EmployeeController {
             System.err.println("apply_id:" + apply_id);
             Apply apply = Apply.me.findById(apply_id);
             int uid = apply.getInt("uid");
+
+            String apply_detail_status = apply.getStr("apply_detail_status");
+            String apply_detail_html = apply.getStr("apply_detail_html");
+
+            //如果是历史存根，只能查看历史存根
+            if("save".equals(apply_detail_status) && StringUtils.isNotEmpty(apply_detail_html)){//已经是历史存根了
+                renderHtml(apply_detail_html);
+                return;
+            }
+
 
 
             setAttr("V_APPLY", VApplyShort.me.findByApplyID(apply_id));
