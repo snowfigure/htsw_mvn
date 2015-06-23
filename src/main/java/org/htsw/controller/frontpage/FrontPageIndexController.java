@@ -366,4 +366,43 @@ public class FrontPageIndexController extends SystemCtroller {
             return;
         }
     }
+
+
+    //获取detail加密处理
+
+    public void apperrlygetase64DeFromBtail() {
+        setAttr("title", "申请信息详情");
+
+        String _apply_id_ = getPara();
+        try {
+            String _base64 = _apply_id_.replaceAll("@", "/+").replaceAll("#", "//").replaceAll("$", "=");
+            String _des = Base64.getFromBase64(_base64);
+            String _apply_id = DesUtil.decrypt(_des);
+            int apply_id = new Integer(_apply_id);
+
+            System.err.println("apply_id:" + apply_id);
+            Apply apply = Apply.me.findById(apply_id);
+            int uid = apply.getInt("uid");
+
+
+            setAttr("V_APPLY", VApplyShort.me.findByApplyID(apply_id));
+            setAttr("V_USER_BANK", VUserBank.me.findByUid(uid));
+            setAttr("V_USER_COMPANY", VUserCompany.me.findByUid(uid));
+            setAttr("V_USER_ENTERPRISE", VUserEnterprise.me.findByUid(uid));
+            setAttr("V_USER_HOUSE", VUserHouse.me.findByUid(uid));
+            setAttr("V_USER_CAR", VUserCar.me.findByUid(uid));
+            setAttr("V_USER_INFO", VUserInfo.me.findByUid(uid));
+            setAttr("V_USER_CONTACT", User_Contact.me.findVByUid(uid));
+
+            render("/WEB-INF/MEMBER_PAGE/member_apply_detail.ftl");
+        } catch (Exception ex) {
+            System.err.println(ex.toString());
+            renderError(404);
+        }
+
+    }
+
+
+
+
 }

@@ -53,7 +53,7 @@ public class VApplyShort extends Model<VApplyShort> {
     public Page<VApplyShort> paginate(int pageNumber, int pageSize){
         return paginate(pageNumber, pageSize,
                 "select * ",
-                "from v_apply where deal_uid is null order by apply_time");
+                "from v_apply where deal_uid = 9 order by apply_time");
     }
 
     public Page<VApplyShort> paginate(int pageNumber, int pageSize , int status ,int deal_uid){

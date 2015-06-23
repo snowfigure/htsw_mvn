@@ -1,10 +1,12 @@
 package org.htsw.controller.employee;
 
 import com.jfinal.aop.Before;
+import com.jfinal.kit.JsonKit;
 import com.jfinal.plugin.activerecord.Page;
 import com.sf.kits.coder.Base64;
 import com.sf.kits.coder.DesUtil;
 import com.sf.kits.coder.MD5;
+import com.sf.kits.net.HttpRequestUtil;
 import com.sf.kits.time.TimeUtil;
 import org.apache.commons.lang.StringUtils;
 import org.apache.shiro.SecurityUtils;
@@ -16,9 +18,11 @@ import org.htsw.model.ApplyLog;
 import org.htsw.model.User;
 import org.htsw.model.user.User_Contact;
 import org.htsw.model.view.*;
+import org.htsw.util.StaticFactory;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Map;
 
 @Before(ManagerInterceptor.class)
 public class EmployeePageIndexController extends EmployeeController {
@@ -148,6 +152,31 @@ public class EmployeePageIndexController extends EmployeeController {
                 return;
             }
 
+            System.err.println(diff + ":diff   status:" + status);
+            //保存save触发条件：当且仅当status=2 且 diff=1的时候成立
+            if(diff==1 && status == 2){
+                System.err.println("if    " + diff + ":diff   status:" + status);
+                Map<String, String> map = StaticFactory.getSystemConfigMap();
+
+                System.out.println(JsonKit.toJson(map));
+
+                String html = HttpRequestUtil.httpRequest("http://121.42.49.238:8080/apperrlygetase64DeFromBtail/" + _apply_id_);
+
+                System.err.println(html);
+
+                apply.set("apply_detail_html",html);
+
+                apply.set("apply_detail_status","save");
+            }
+
+            if((diff==-1 && status==3)||diff==-2){
+                apply.set("apply_detail_status","redo");
+            }
+
+            //重做undo处罚条件：status==3 且 diff = -1   或者 diff=-2
+
+
+
             if(diff==0){
                 apply.set("status", 1);
                 boolean flag = apply.update();
@@ -156,7 +185,7 @@ public class EmployeePageIndexController extends EmployeeController {
                     renderText("更改状态成功，页面将重新刷新，请稍后。");
                     return;
                 } else {
-                    renderText("更改状态失败，请联系管理人员查看具体原题，谢谢合作。");
+                    renderText("更改状态失败，请联系管理人员查看具体问题，谢谢合作。");
                     return;
                 }
             }
@@ -230,6 +259,7 @@ public class EmployeePageIndexController extends EmployeeController {
 
 
             int status = apply.getInt("status");
+
             setAttr("_apply_id_", _apply_id_);
             setAttr("status", status);
             render("/WEB-INF/EMPLOYEE_PAGE/employee_applyDeal.ftl");
@@ -264,18 +294,26 @@ public class EmployeePageIndexController extends EmployeeController {
             Apply apply = Apply.me.findById(apply_id);
             try{
                 int deal_uid = apply.getInt("deal_uid");
-                if(deal_uid!=uid){
-                    renderText("<span style='color:red'>失败：</span>无法接受此申请单：此申请单已经被其它业务员接手，请刷新页面后选择其它申请单。");
-                } else{
-                    renderText("false");
+                if(deal_uid==9 && deal_uid!=uid) {
+                    apply.set("deal_uid", uid);
+                    apply.update();
+                    renderText("true");
+                    return;
+                }
+                else{
+                    if(deal_uid!=uid){
+                        renderText("<span style='color:red'>失败：</span>无法接受此申请单：此申请单已经被其它业务员接手，请刷新页面后选择其它申请单。");
+                    }else{
+                        renderText("false");
+                    }
                 }
                 return;
             }
             catch (Exception ex){
                 System.err.println(ex.toString());
-                apply.set("deal_uid",uid);
-                apply.update();
-                renderText("true");
+//                apply.set("deal_uid",uid);
+//                apply.update();
+                renderText("false");
                 return;
             }
 
