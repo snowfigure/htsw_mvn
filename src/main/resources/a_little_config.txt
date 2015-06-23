@@ -3,7 +3,8 @@
 #password =1389c21ad3
 #devMode = true
 
+#1389c21ad3
 jdbcUrl = jdbc:mysql://localhost/htsw_2015?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
 user = root
-password =1389c21ad3
+password =FdqLbf791211
 devMode = true

@@ -3,6 +3,7 @@ package org.htsw.config;
 import com.jfinal.config.*;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.c3p0.C3p0Plugin;
+import org.htsw.controller.weChat.WeChatController;
 import org.htsw.controller.adminpage.*;
 import org.htsw.controller.employee.EmployeePageIndexController;
 import org.htsw.controller.frontpage.FrontPageIndexController;
@@ -39,6 +40,7 @@ public class GlobalConfig extends JFinalConfig {
         me.add("/", FrontPageIndexController.class);
         me.add("/fpc", FrontPageLoginController.class);
         me.add("/load", LoadCtroller.class);
+        me.add("/wechat", WeChatController.class);
 
         //管理员2
         me.add("/admin", AdminPageIndexController.class);

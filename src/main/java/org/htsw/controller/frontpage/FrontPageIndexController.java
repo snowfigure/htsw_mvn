@@ -19,10 +19,7 @@ import org.htsw.model.user.User_Contact;
 import org.htsw.model.view.*;
 import org.htsw.util.StaticFactory;
 
-import javax.mail.Address;
-import javax.mail.Message;
-import javax.mail.Session;
-import javax.mail.Transport;
+import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Date;
@@ -225,6 +222,7 @@ public class FrontPageIndexController extends SystemCtroller {
 
         }
         catch(Exception ex){
+            System.err.println(ex.toString());
             renderJson("FALSE");
         }
     }
@@ -290,8 +288,6 @@ public class FrontPageIndexController extends SystemCtroller {
             String reg_valid_key = _base64.replaceAll("/+", "@").replaceAll("//", "#").replaceAll("=", "$");
 
             Map<String, String> map = StaticFactory.getSystemConfigMap();
-//            System.out.println(JsonKit.toJson(map));
-
 
             Properties props = new Properties();
             // 开启debug调试
@@ -303,8 +299,9 @@ public class FrontPageIndexController extends SystemCtroller {
             // 发送邮件协议名称
             props.setProperty("mail.transport.protocol", "smtp");
 
+//            Authenticator authenticator = new Authenticator("","") ;
             // 设置环境信息
-            Session session = Session.getInstance(props);
+            Session session = Session.getDefaultInstance(props);
 
             // 创建邮件对象
             Message msg = new MimeMessage(session);
@@ -328,7 +325,8 @@ public class FrontPageIndexController extends SystemCtroller {
             user.update();
             renderJson("SUCCESS");
         } catch (Exception ex) {
-//            ex.printStackTrace();
+            ex.printStackTrace();
+            System.err.println(ex.toString());
             renderJson("FALSE");
         }
     }
