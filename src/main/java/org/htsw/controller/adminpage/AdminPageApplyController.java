@@ -1,10 +1,15 @@
 package org.htsw.controller.adminpage;
 
 import com.jfinal.plugin.activerecord.Page;
+import com.sf.kits.coder.Base64;
+import com.sf.kits.coder.DesUtil;
 import com.sf.kits.easyui.DataGridJson;
+import org.htsw.Service.ApplyService;
 import org.htsw.model.Apply;
 import org.htsw.model.view.VApplyDetail;
+import org.htsw.model.view.VApplyLog;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -63,4 +68,13 @@ public class AdminPageApplyController extends AdminController  {
         json.setTotal(VApplyPage.getTotalRow() + "");
         renderJson(json);
     }
+
+    public void getApplyLog(){
+
+        String _apply_id_ = getPara();
+        renderJson(ApplyService.getApplyLog(_apply_id_));
+
+    }
+
+
 }

@@ -33,7 +33,7 @@ public class VApplyDetail extends Model<VApplyDetail> {
             search += String.format( " and  deal_user_name like '%s' " , "%" +deal_user_name + "%") ;
         }
 
-        System.out.println("from v_apply_detail where 'status' =  " + status + search );
+        System.out.println("from v_apply_detail where status =  " + status + search );
         if(status==0 )
         {
             if(StringUtils.isEmpty(search)){
@@ -50,7 +50,7 @@ public class VApplyDetail extends Model<VApplyDetail> {
         {
             return paginate(pageNumber,pageSize,
                     "select * ",
-                    "from v_apply_detail where 'status' =?  " + search,status);
+                    "from v_apply_detail where status =?  " + search,status);
         }
 
     }

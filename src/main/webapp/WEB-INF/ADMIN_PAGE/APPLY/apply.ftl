@@ -9,6 +9,8 @@
     <script type="text/javascript" src="/assets/easyui/jquery.min.js"></script>
     <script type="text/javascript" src="/assets/easyui/jquery.easyui.min.js"></script>
     <script type="text/javascript" src="/assets/easyui/locale/easyui-lang-zh_CN.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body class="easyui-layout" style="text-align:left;padding: 15px">
 <div class="panel panel-default">
@@ -61,10 +63,41 @@
                 <table id="apply__dg"></table>
                 <br/>
 
+
+                <!-- 模态框（Modal） -->
+                <div class="modal fade" id="log_modal" tabindex="-1" role="dialog"
+                     aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" style="width: 900px">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close"
+                                        data-dismiss="modal" aria-hidden="true">
+                                    &times;
+                                </button>
+                                <h4 class="modal-title" id="log_title">
+                                    审核日志详情
+                                </h4>
+                            </div>
+                            <div class="modal-body" id="log_detail">
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default"
+                                        data-dismiss="modal">关闭
+                                </button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal -->
+                </div>
+
+
         </div>
 
     </div>
 </body>
+
 <script type="text/javascript">
     function myformatter(date){
         var y = date.getFullYear();
@@ -88,6 +121,41 @@
 <script type="text/javascript">
     $(function () {
 
+        function showLog(apply_id) {
+            $.ajax({
+                type: "post",
+                url: "/admin/apply/getApplyLog/" + apply_id,
+                dataType: 'json',
+                success: function (data) {
+                    var html =
+                            "<table>" +
+                            "<tr>" +
+                            "<th style='width: 200px'>处理时间</th>" +
+                            "<th style='width: 550px'>处理信息</th>" +
+                            "<th style='width: 150px'>操作人</th> " +
+                            "</tr>";
+
+                    for (var i = 0; i < data.length; i++) {
+                        var log = data[i];
+                        html +=
+                                "<tr>" +
+                                "<td style='width: 150px'>" + log.deal_time + "</td>" +
+                                "<td style='width: 550px'>" + log.deal_log + "</td>" +
+                                "<td style='width: 150px'>" + log.name + "</td> " +
+                                "</tr>";
+                    }
+                    html += "</table>";
+                    $("#log_detail").html(html);
+
+                    $('#log_modal').modal('show');
+                }
+            });
+
+        }
+
+
+
+
         $("#btn_search_submit").click(function(){
            $('#apply__dg').datagrid('load');
         });
@@ -103,16 +171,18 @@
 
         var columns = [[
             {field: 'apply_id', title: 'id', width: $(this).width() * 0.1, hidden: true},
+            {field: '_apply_id_', title: '_apply_id_', width: $(this).width() * 0.1, hidden: true},
             {field: 'apply_user_uname', title: '申请人(登陆名)', width: $(this).width() * 0.08},
             {field: 'apply_user_name', title: '申请人(真实姓名)', width: $(this).width() * 0.08},
             {field: 'apply_product_type_name', title: '申请类型', width: $(this).width() * 0.08},
             {field: 'money', title: '申请金额', width: $(this).width() * 0.06},
             {field: 'apply_use_time_type_name', title: '使用时间', width: $(this).width() * 0.06},
             {field: 'apply_use_for_type_name', title: '支出类型', width: $(this).width() * 0.08},
-            {field: 'month_payment', title: '月还款额', width: $(this).width() * 0.08},
+            {field: 'month_payment', title: '月还款额', width: $(this).width() * 0.06},
             {field: 'apply_pay_way_type_name', title: '还款方式', width: $(this).width() * 0.06},
             {field: 'deal_user_name', title: '处理人', width: $(this).width() * 0.08},
-            {field: 'apply_time', title: '申请时间', width: $(this).width() * 0.09}
+            {field: 'apply_valid_status_type_name', title: '申请状态', width: $(this).width() * 0.14},
+            {field: 'apply_time', title: '申请时间', width: $(this).width() * 0.10}
         ]];
 
 
@@ -133,10 +203,15 @@
                 param.end_time =   $("#end_time").datebox('getValue');
             },
             toolbar: [{
-                text: "重置密码",
-                iconCls: 'icon-redo',
+                text: "审核日志",
+                iconCls: 'icon-tip',
                 handler: function () {
-                    employeeManager("clear_psd", "重置密码");
+                    var row = $('#apply__dg').datagrid("getSelected");
+                    if (row == null) {
+                        $.messager.alert('错误', '请选择一条记录！', 'info');
+                        return;
+                    }
+                    showLog(row._apply_id_);
                 }
             }
             ],

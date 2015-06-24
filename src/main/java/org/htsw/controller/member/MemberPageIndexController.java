@@ -8,6 +8,7 @@ import com.sf.kits.coder.MD5;
 import org.apache.commons.lang.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
+import org.htsw.Service.ApplyService;
 import org.htsw.config.ManagerInterceptor;
 import org.htsw.config.ShiroConfig;
 import org.htsw.model.Apply;
@@ -139,23 +140,8 @@ public class MemberPageIndexController extends MemberController {
 
     public void getApplyLog(){
 
-        try {
-            String _apply_id_ = getPara();
-            System.out.println("_apply_id_:" + _apply_id_);
-
-            String _base64 = _apply_id_.replaceAll("@", "/+").replaceAll("#", "//").replaceAll("$", "=");
-            String _des = Base64.getFromBase64(_base64);
-            String _apply_id = DesUtil.decrypt(_des);
-            int apply_id = new Integer(_apply_id);
-
-            System.out.println("apply_id:" + apply_id);
-
-            renderJson(VApplyLog.me.getLogList(apply_id));
-
-        } catch (Exception ex) {
-            System.err.println(ex.toString());
-           renderJson(new ArrayList<VApplyLog>());
-        }
+        String _apply_id_ = getPara();
+        renderJson(ApplyService.getApplyLog(_apply_id_));
     }
 
     public void applyDetail() {
