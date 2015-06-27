@@ -109,8 +109,8 @@
                     url: '/employee/updatePsd/',
                     dataType: 'text',
                     data: {
-                        pre_password:hex_md5(hex_md5(pre_password)+pre_password),
-                        new_password:hex_md5(hex_md5(new_password)+new_password)
+                        pre_password:hex_md5(hex_md5(pre_password)+username),
+                        new_password:hex_md5(hex_md5(new_password)+username)
                     },
                     success: function (data) {
                         if(data =="ERROR")
@@ -131,8 +131,10 @@
                         $('#password_save_alert').html("密码修改成功。");
                         $('#password_save_alert').css('visibility','visible');
 
-                        disableAlert();
-                        //window.open("/login.html","_self")
+                        window.setTimeout(
+                                function(){
+                                    location.href = "/login.html";
+                                },2000);
                     }
                 });
 

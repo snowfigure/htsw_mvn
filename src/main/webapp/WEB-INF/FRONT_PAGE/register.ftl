@@ -88,7 +88,12 @@
                         $('#login-alert').css('visibility','visible');
                         return false;
                     }
-
+                    if(data =="ERROR_EMAIL")
+                    {
+                        $('#login-alert').html("不支持此类邮箱。");
+                        $('#login-alert').css('visibility','visible');
+                        return false;
+                    }
                     if(data !="true")
                     {
                         $('#login-alert').html("注册失败，请联系管理员。");

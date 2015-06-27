@@ -7,6 +7,7 @@ import com.sf.kits.coder.MD5;
 import org.htsw.config.ShiroConfig;
 
 import java.lang.reflect.Member;
+import java.util.List;
 
 /**
  * 用户
@@ -40,107 +41,11 @@ public class User extends Model<User> {
     public static final String LAST_LOGIN_IP = "last_login_ip"; // 最后登录IP
     public static final String DELETE_STATUS = "delete_status"; // 删除状态 默认：0
     // 删除：1
-    public static final String ENABLE = "enable"; // 是否停用 默认：0 停用：1
+    public static final String ENABLE = "enable"; // 是否停用 默认：1 停用：2
 
-    /**
-     * 根据user条件分页查找user用户
-     *
-     * @param pageNumber 当前页
-     * @param pageSize   每页显示条数
-     * @param user       条件
-     * @return Page<User>
-     */
-    public Page<User> searchPaginate(int pageNumber, int pageSize, User user) {
-        String select = "SELECT * ";
-        StringBuffer stringBuffer = new StringBuffer("FROM user WHERE delete_status = '0' ");
-        // 判断用户名是否为空，不为空添加条件
-        if (null != user.getStr(USERNAME) && !"".equals(user.getStr(USERNAME))) {
-            stringBuffer.append("AND ").append(USERNAME).append(" like '").append(user.getStr(USERNAME)).append("%' "); // 用户名向后模糊查找
-        }
-        // 判断姓名是否为空，不为空添加条件
-        if (null != user.getStr(NAME) && !"".equals(user.getStr(NAME))) {
-            stringBuffer.append("AND ").append(NAME).append(" like '").append(user.getStr(NAME)).append("%' "); // 姓名向后模糊查找
-        }
-        // 判断性别是否为空，不为空添加条件
-        if (null != user.getStr(SEX) && !"".equals(user.getStr(SEX))) {
-            stringBuffer.append("AND ").append(SEX).append(" = '").append(user.getStr(SEX)).append("' ");
-        }
-        // 判断用户类型是否为空，不为空添加条件
-        if (null != user.getStr(TYPE) && !"".equals(user.getStr(TYPE))) {
-            stringBuffer.append("AND ").append(TYPE).append(" = '").append(user.getStr(TYPE)).append("' ");
-        }
-        // 判断在线状态是否为空，不为空添加条件
-        if (null != user.getStr(LOGIN_STATUS) && !"".equals(user.getStr(LOGIN_STATUS))) {
-            stringBuffer.append("AND ").append(LOGIN_STATUS).append(" = '").append(user.getStr(LOGIN_STATUS)).append("' ");
-        }
-        // 判断启用状态是否为空，不为空添加条件
-        if (null != user.getStr(ENABLE) && !"".equals(user.getStr(ENABLE))) {
-            stringBuffer.append("AND ").append(ENABLE).append(" = '").append(user.getStr(ENABLE)).append("' ");
-        }
 
-        stringBuffer.append("ORDER BY id DESC");
 
-        return paginate(pageNumber, pageSize, select, stringBuffer.toString());
-    }
 
-    /**
-     * 根据username查找用户
-     *
-     * @param username 用户名
-     * @return User
-     */
-    public User searchByUsername(String username) {
-        String sql = "SELECT * FROM user WHERE delete_status = '0' AND username = ?";
-        return findFirst(sql, username);
-    }
-
-    /**
-     * 根据ids批量删除用户（实际：更新delete_status = '1'）
-     *
-     * @param ids
-     * @return boolean
-     */
-    public boolean deleteByIds(String[] ids) {
-        StringBuffer stringBuffer = new StringBuffer("UPDATE user SET delete_status = '1',enable = '1' WHERE ");
-        if (null != ids && 1 == ids.length) {
-            stringBuffer.append("id = ?");
-            return 0 == Db.update(stringBuffer.toString(), ids[0]) ? true : false;
-        } else if (null != ids && ids.length > 1) {
-            stringBuffer.append("id in('");
-            for (String id : ids) {
-                stringBuffer.append(id).append("','");
-            }
-            stringBuffer.delete(stringBuffer.length() - 2, stringBuffer.length()); // 去掉最后一个,和'
-            stringBuffer.append(")");
-            return 0 == Db.update(stringBuffer.toString()) ? true : false;
-        }
-
-        return false;
-    }
-
-    /**
-     * 根据ids批量重置用户密码
-     *
-     * @param ids
-     * @return boolean
-     */
-    public boolean resetPasswords(String[] ids) {
-        StringBuffer stringBuffer = new StringBuffer("UPDATE user SET password = ? WHERE ");
-        if (null != ids && 1 == ids.length) {
-            stringBuffer.append("id = ?");
-            return 0 == Db.update(stringBuffer.toString(), MD5.getMD5ofStr("000000"), ids[0]) ? true : false;
-        } else if (null != ids && ids.length > 1) {
-            stringBuffer.append("id in('");
-            for (String id : ids) {
-                stringBuffer.append(id).append("','");
-            }
-            stringBuffer.delete(stringBuffer.length() - 2, stringBuffer.length()); // 去掉最后一个,和'
-            stringBuffer.append(")");
-            return 0 == Db.update(stringBuffer.toString(), MD5.getMD5ofStr("000000")) ? true : false;
-        }
-
-        return false;
-    }
 
     public int getUserRoleIDByUserID(int uid) {
         User user = dao.findFirst(ShiroConfig.DEFAULT_USER_ROLES_QUERY, uid);

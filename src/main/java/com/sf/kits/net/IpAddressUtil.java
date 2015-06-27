@@ -25,6 +25,19 @@ public class IpAddressUtil {
 
     /**
      * var remote_ip_info = {"ret":-1,"ip":"10.196.80.130"};
+     * {"ret":1,"start":-1,"end":-1,"country":"\u4e2d\u56fd","province":"\u6c5f\u82cf","city":"\u5357\u4eac","district":"","isp":"","type":"","desc":""}
+     *
+     * @param ip
+     * @return
+     */
+    public static String getIpJsonInfo_sina(String ip) {
+        String url = "http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=json&ip=%s";
+        String result = HttpRequestUtil.httpRequest(String.format(url, ip));
+        return result;
+    }
+
+    /**
+     * var remote_ip_info = {"ret":-1,"ip":"10.196.80.130"};
      * var remote_ip_info = {"ret":1,"start":-1,"end":-1,"country":"\u65e5\u672c","province":"\u5317\u6d77\u9053","city":"Toyohira","district":"","isp":"","type":"","desc":""};
      *
      * @param ip

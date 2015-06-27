@@ -3,10 +3,8 @@ package org.htsw.config;
 import com.jfinal.config.*;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.c3p0.C3p0Plugin;
-import org.htsw.controller.adminpage.AdminPageArticleController;
-import org.htsw.controller.adminpage.AdminPageIndexController;
-import org.htsw.controller.adminpage.AdminPageMenuController;
-import org.htsw.controller.adminpage.AdminPageWebConfigController;
+import org.htsw.controller.weChat.WeChatController;
+import org.htsw.controller.adminpage.*;
 import org.htsw.controller.employee.EmployeePageIndexController;
 import org.htsw.controller.frontpage.FrontPageIndexController;
 import org.htsw.controller.frontpage.FrontPageLoginController;
@@ -42,12 +40,15 @@ public class GlobalConfig extends JFinalConfig {
         me.add("/", FrontPageIndexController.class);
         me.add("/fpc", FrontPageLoginController.class);
         me.add("/load", LoadCtroller.class);
+        me.add("/wechat", WeChatController.class);
 
         //管理员2
         me.add("/admin", AdminPageIndexController.class);
         me.add("/admin/menu", AdminPageMenuController.class);
         me.add("/admin/article", AdminPageArticleController.class);
         me.add("/admin/webconfig", AdminPageWebConfigController.class);
+        me.add("/admin/userInfo", AdminPageUserController.class);
+        me.add("/admin/apply", AdminPageApplyController.class);
 
         //业务员3
         me.add("/employee", EmployeePageIndexController.class);
@@ -114,6 +115,7 @@ public class GlobalConfig extends JFinalConfig {
 
 
         arp.addMapping("v_apply", VApplyShort.class);
+        arp.addMapping("v_apply_detail", VApplyDetail.class);
         arp.addMapping("v_apply_log", VApplyLog.class);
         arp.addMapping("v_user_info", VUserInfo.class);
         arp.addMapping("v_user_bank", VUserBank.class);
@@ -122,7 +124,9 @@ public class GlobalConfig extends JFinalConfig {
         arp.addMapping("v_user_car", VUserCar.class);
         arp.addMapping("v_user_enterprise", VUserEnterprise.class);
 
-
+        arp.addMapping("v_userinfo_admin", VUserInfoAdmin.class);
+        arp.addMapping("v_userinfo_employee", VUserInfoEmployee.class);
+        arp.addMapping("v_userinfo_member", VUserInfoMember.class);
 
 
 

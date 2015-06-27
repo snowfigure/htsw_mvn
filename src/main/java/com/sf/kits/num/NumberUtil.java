@@ -18,7 +18,7 @@ public class NumberUtil {
     }
 
     public static void main(String[] args) {
-        System.out.println(NumberUtil.random(0, 3652));
+        System.out.println(NumberUtil.random(100000, 999999));
 
     }
 }

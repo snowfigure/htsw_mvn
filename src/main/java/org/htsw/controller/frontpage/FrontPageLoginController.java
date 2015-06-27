@@ -1,6 +1,7 @@
 package org.htsw.controller.frontpage;
 
 import com.sf.kits.coder.MD5;
+import com.sf.kits.net.IpAddressUtil;
 import org.apache.commons.lang.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -53,8 +54,15 @@ public class FrontPageLoginController extends SystemCtroller {
 
         String login_time = dateFormat.format(now);
         User _user = User.dao.findById(uid);
-        _user.set("last_login_time", login_time).update();
-        //System.out.println("role_id->" + role_id);
+
+        String loginIp = IpAddressUtil.getRequestIpAddress(getRequest());
+
+
+
+        _user
+                .set("last_login_time", login_time)
+                .set("last_login_ip", loginIp)
+                .update();
         renderText("" + role_id);
     }
 
@@ -91,11 +99,22 @@ public class FrontPageLoginController extends SystemCtroller {
             renderText("EXIST_EMAIL");
             return;
         }
+
+        String time = (new Date()).getTime() + "";
+
+        Date now = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//可以方便地修改日期格式
+
+
+        String reg_time = dateFormat.format(now);
+
         User newUser = new User();
         Boolean flag = newUser.set("username", username)
                 .set("password", password)
                 .set("email", email)
-                .set("enable", 0)
+                .set("reg_valid", time)
+                .set("create_time", reg_time)
+                .set("enable", 1)     //
                 .set("delete_status", 0).save();
 
         //member用户的角色分配
@@ -115,4 +134,9 @@ public class FrontPageLoginController extends SystemCtroller {
 
         renderText("" + flag);
     }
+
+
+
+
+
 }

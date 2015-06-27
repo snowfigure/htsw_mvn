@@ -5,7 +5,10 @@ import com.jfinal.aop.Before;
 import com.sf.kits.coder.Base64;
 import com.sf.kits.coder.DesUtil;
 import com.sf.kits.coder.MD5;
+import org.apache.commons.lang.StringUtils;
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.Subject;
+import org.htsw.Service.ApplyService;
 import org.htsw.config.ManagerInterceptor;
 import org.htsw.config.ShiroConfig;
 import org.htsw.model.Apply;
@@ -40,10 +43,23 @@ public class MemberPageIndexController extends MemberController {
         render("/WEB-INF/MEMBER_PAGE/member_index.ftl");
     }
 
+
     public void password(){
         setAttr("title", "修改密码");
         setAttr("pageFlag", "password");
         render("/WEB-INF/MEMBER_PAGE/member_password.ftl");
+    }
+
+    public void help(){
+        setAttr("title", "使用帮助 - 申请流程");
+        setAttr("pageFlag", "help");
+        render("/WEB-INF/MEMBER_PAGE/member_help.ftl");
+    }
+
+    public void fileUpload(){
+        setAttr("title", "资料上传");
+        setAttr("pageFlag", "fileUpload");
+        render("/WEB-INF/MEMBER_PAGE/member_fileUpload.ftl");
     }
 
     public  void updatePsd(){
@@ -61,6 +77,14 @@ public class MemberPageIndexController extends MemberController {
         new_password = MD5.getMD5ofStr(new_password).toLowerCase();
 
         loginUser.set("password", new_password);
+
+        //注销用户登陆
+        try {
+            SecurityUtils.getSubject().logout();
+        } catch (Exception ex) {
+
+        }
+
         renderText(loginUser.update() + "");
     }
 
@@ -112,28 +136,12 @@ public class MemberPageIndexController extends MemberController {
         List<VApplyShort> list = VApplyShort.me.getList(uid);
         setAttr("V_APPLY_SHORT_LIST", list);
         render("/WEB-INF/MEMBER_PAGE/member_applyLog.ftl");
-//        renderJson(list);
     }
 
     public void getApplyLog(){
 
-        try {
-            String _apply_id_ = getPara();
-            System.out.println("_apply_id_:" + _apply_id_);
-
-            String _base64 = _apply_id_.replaceAll("@", "/+").replaceAll("#", "//").replaceAll("$", "=");
-            String _des = Base64.getFromBase64(_base64);
-            String _apply_id = DesUtil.decrypt(_des);
-            int apply_id = new Integer(_apply_id);
-
-            System.out.println("apply_id:" + apply_id);
-
-            renderJson(VApplyLog.me.getLogList(apply_id));
-
-        } catch (Exception ex) {
-            System.err.println(ex.toString());
-           renderJson(new ArrayList<VApplyLog>());
-        }
+        String _apply_id_ = getPara();
+        renderJson(ApplyService.getApplyLog(_apply_id_));
     }
 
     public void applyDetail() {
@@ -158,12 +166,16 @@ public class MemberPageIndexController extends MemberController {
                 return;
             }
 
-//            System.out.println(JsonKit.toJson(VApplyShort.me.findByUid(uid)));
-//            System.out.println(JsonKit.toJson(VUserBank.me.findByUid(uid)));
-//            System.out.println(JsonKit.toJson(VUserCompany.me.findByUid(uid)));
-//            System.out.println(JsonKit.toJson(VUserEnterprise.me.findByUid(uid)));
-//            System.out.println(JsonKit.toJson(VUserHouse.me.findByUid(uid)));
-//            System.out.println(JsonKit.toJson(VUserInfo.me.findByUid(uid)));
+            Apply apply = Apply.me.findById(apply_id);
+            String apply_detail_status = apply.getStr("apply_detail_status");
+            String apply_detail_html = apply.getStr("apply_detail_html");
+
+            //如果是历史存根，只能查看历史存根
+            if("save".equals(apply_detail_status) && StringUtils.isNotEmpty(apply_detail_html)){//已经是历史存根了
+                renderHtml(apply_detail_html);
+                return;
+            }
+
 
             setAttr("V_APPLY", VApplyShort.me.findByApplyID(apply_id));
             setAttr("V_USER_BANK", VUserBank.me.findByUid(uid));

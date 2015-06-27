@@ -1,0 +1,139 @@
+{
+  "list": [
+    {
+      "children": [
+        {
+          "text": "申请管理",
+          "id": "1",
+          "iconCls": "icon-edit",
+          "url": "apply"
+        },
+        {
+          "text": "申请统计",
+          "id": "1",
+          "iconCls": "icon-edit",
+          "url": "apply/count"
+        }
+      ],
+      "text": "申请管理",
+      "iconCls": "icon-edit",
+      "id": "3",
+      "state": "closed"
+    },
+    {
+      "children": [
+        {
+          "text": "管理员",
+          "id": "1",
+          "iconCls": "icon-user_cos",
+          "url": "userInfo/index?type=admin"
+        },
+        {
+          "text": "业务员",
+          "id": "1",
+          "iconCls": "icon-user_cos",
+          "url": "userInfo/index?type=employee"
+        },
+        {
+          "text": "客户",
+          "id": "1",
+          "iconCls": "icon-user_cos",
+          "url": "userInfo/?type=member"
+        },
+        {
+          "text": "用户信息统计",
+          "id": "1",
+          "iconCls": "icon-user_cos",
+          "url": "userInfo/count"
+        }
+      ],
+      "text": "用户管理",
+      "iconCls": "icon-man",
+      "id": "3",
+      "state": "closed"
+    },
+
+    {
+      "children": [
+        {
+          "text": "基本参数",
+          "id": "1",
+          "iconCls": "icon-setting2",
+          "url": "webconfig?type=1"
+        },
+        {
+          "text": "邮件参数",
+          "id": "1",
+          "iconCls": "icon-setting2",
+          "url": "webconfig?type=2"
+        },
+        {
+          "text": "首页描述参数",
+          "id": "1",
+          "iconCls": "icon-setting2",
+          "url": "webconfig?type=3"
+        }
+      ],
+      "text": "系统参数",
+      "iconCls": "icon-setting1",
+      "id": "3",
+      "state": "closed"
+    },
+    {
+      "children": [
+        {
+          "text": "公司简介",
+          "id": "1",
+          "iconCls": "icon-blog",
+          "url": "article/index?aid=1"
+        },
+        {
+          "text": "联系我们",
+          "id": "2",
+          "iconCls": "icon-blog",
+          "url": "article/index?aid=4"
+        },
+        {
+          "text": "人才招聘",
+          "id": "3",
+          "iconCls": "icon-blog",
+          "url": "article/index?aid=3"
+        },
+        {
+          "text": "隐私声明",
+          "id": "4",
+          "iconCls": "icon-blog",
+          "url": "article/index?aid=2"
+        },
+        {
+          "text": "产品介绍",
+          "id": "5",
+          "iconCls": "icon-blog",
+          "url": "article/index?aid=5"
+        },
+        {
+          "text": "新手入门",
+          "id": "6",
+          "iconCls": "icon-blog",
+          "url": "article/index?aid=64"
+        },
+        {
+          "text": "资费说明",
+          "id": "7",
+          "iconCls": "icon-blog",
+          "url": "article/index?aid=7"
+        },
+        {
+          "text": "常见问题",
+          "id": "8",
+          "iconCls": "icon-blog",
+          "url": "article/index?aid=8"
+        }
+      ],
+      "text": "网站编辑",
+      "iconCls": "icon-articles",
+      "id": "2",
+      "state": "closed"
+    }
+  ]
+}
