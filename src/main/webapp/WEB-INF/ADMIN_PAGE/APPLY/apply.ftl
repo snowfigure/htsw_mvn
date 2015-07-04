@@ -12,7 +12,7 @@
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
     <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
 </head>
-<body class="easyui-layout" style="text-align:left;padding: 15px">
+<body style="text-align:left;padding: 15px">
 <div class="panel panel-default">
     <div class="panel-heading">
         <h3 class="panel-title">

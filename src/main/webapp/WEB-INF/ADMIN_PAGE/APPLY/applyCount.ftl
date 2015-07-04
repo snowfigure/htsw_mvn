@@ -8,10 +8,11 @@
     <link rel="stylesheet" type="text/css" href="/assets/amazeui_2.3.0/css/amazeui.css">
     <script type="text/javascript" src="/assets/easyui/jquery.min.js"></script>
     <script type="text/javascript" src="/assets/easyui/jquery.easyui.min.js"></script>
-    <script type="text/javascript" src="http://echarts.baidu.com/build/dist/echarts-all.js"></script>
+<#--<script type="text/javascript" src="http://echarts.baidu.com/build/dist/echarts-all.js"></script>-->
+    <script type="text/javascript" src="/assets/echarts-2.2.4/echarts-all.js"></script>
 </head>
-<body class="easyui-layout" style="padding: 5px">
-    <div id="tt" class="easyui-tabs" style="width:100%;height:100%;">
+<body style="padding: 5px">
+    <div id="tt" class="easyui-tabs" style="width:99%;">
         <div title="申请状态分类统计" style="overflow:auto;padding:20px;">
             <div id="apply_status" style="height:500px;"></div>
         </div>

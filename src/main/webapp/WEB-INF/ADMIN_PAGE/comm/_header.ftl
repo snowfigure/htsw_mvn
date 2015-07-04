@@ -1,34 +1,17 @@
-<header class="am-topbar admin-header">
-    <div class="am-topbar-brand">
-        <img src="/assets/img/logo_admin.jpg" height="40"/>
-        <small>后台管理平台</small>
-    </div>
-
-    <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only"
-            data-am-collapse="{target: '#topbar-collapse'}">
-        <span class="am-sr-only">导航切换</span>
-        <span class="am-icon-bars"></span>
-    </button>
-
-    <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
-
-        <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
-            <li>
-                <a>
-                    <span >欢迎管理员：</span> ${user['username']!}
-                </a>
-            </li>
-            <li>
-                <a href="/admin/editPassword.html">
-                    <span class="am-icon-pencil"></span> 修改密码
-                </a>
-            </li>
-            <li>
-                <a href="/fpc/logout">
-                    <span class="am-icon-power-off"></span> 退出
-                </a>
-            </li>
-
-        </ul>
-    </div>
-</header>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>综合管理平台 - ${systemConfig['WEBNAME']!}</title>
+    <link rel="stylesheet" type="text/css" href="/assets/easyui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/assets/easyui/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="/assets/amazeui_2.3.0/css/amazeui.css">
+    <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap.min.css">
+    <script type="text/javascript" src="/assets/easyui/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/easyui/jquery.easyui.min.js"></script>
+<#--<script type="text/javascript" src="http://echarts.baidu.com/build/dist/echarts-all.js"></script>-->
+    <script type="text/javascript" src="/assets/echarts-2.2.4/echarts-all.js"></script>
+    <script type="text/javascript" src="/assets/easyui/locale/easyui-lang-zh_CN.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+</head>

@@ -131,7 +131,7 @@
         }
       ],
       "text": "网站编辑",
-      "iconCls": "icon-articles",
+      "iconCls": "icon-blog",
       "id": "2",
       "state": "closed"
     }

@@ -11,7 +11,7 @@
     <script type="text/javascript" src="/assets/easyui/jquery.easyui.min.js"></script>
     <script type="text/javascript" src="/assets/easyui/locale/easyui-lang-zh_CN.js"></script>
 </head>
-<body class="easyui-layout" style="text-align:left;padding: 15px">
+<body style="text-align:left;padding: 15px">
 
     <div class="panel panel-default">
         <div class="panel-heading">
