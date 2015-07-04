@@ -39,6 +39,11 @@
                         </a>
                     </li>
                     <li>
+                        <a href="/index.html" target="_blank" ">
+                            <span class="am-icon-home"></span> 首页
+                        </a>
+                    </li>
+                    <li>
                         <a href="/fpc/logout">
                             <span class="am-icon-power-off"></span> 退出
                         </a>
@@ -52,7 +57,7 @@
 
 </div>
 
-<div data-options="region:'south',split:true" style="overflow: hidden;height: 30px;text-align: center">
+<div data-options="region:'south' " style="overflow: hidden;height: 30px;text-align: center">
     版权所有：<a href="${systemConfig['WEBURL']!}" style="color: black">${systemConfig['COMPANYNAME']!}</a>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;备案号：${systemConfig['ICP']!}
 </div>

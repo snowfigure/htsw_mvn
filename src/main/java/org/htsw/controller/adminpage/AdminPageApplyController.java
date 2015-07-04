@@ -4,10 +4,11 @@ import com.jfinal.plugin.activerecord.Page;
 import com.sf.kits.coder.Base64;
 import com.sf.kits.coder.DesUtil;
 import com.sf.kits.easyui.DataGridJson;
+import org.apache.commons.lang.StringUtils;
 import org.htsw.Service.ApplyService;
 import org.htsw.model.Apply;
-import org.htsw.model.view.VApplyDetail;
-import org.htsw.model.view.VApplyLog;
+import org.htsw.model.user.User_Contact;
+import org.htsw.model.view.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -73,6 +74,49 @@ public class AdminPageApplyController extends AdminController  {
 
         String _apply_id_ = getPara();
         renderJson(ApplyService.getApplyLog(_apply_id_));
+
+    }
+
+
+    public void applyDetail() {
+        setAttr("title", "申请信息详情");
+
+        String _apply_id_ = getPara();
+        try {
+            String _base64 = _apply_id_.replaceAll("@", "/+").replaceAll("#", "//").replaceAll("$", "=");
+            String _des = Base64.getFromBase64(_base64);
+            String _apply_id = DesUtil.decrypt(_des);
+            int apply_id = new Integer(_apply_id);
+
+            System.err.println("apply_id:" + apply_id);
+            Apply apply = Apply.me.findById(apply_id);
+            int uid = apply.getInt("uid");
+
+            String apply_detail_status = apply.getStr("apply_detail_status");
+            String apply_detail_html = apply.getStr("apply_detail_html");
+
+            //如果是历史存根，只能查看历史存根
+            if("save".equals(apply_detail_status) && StringUtils.isNotEmpty(apply_detail_html)){//已经是历史存根了
+                renderHtml(apply_detail_html);
+                return;
+            }
+
+
+
+            setAttr("V_APPLY", VApplyShort.me.findByApplyID(apply_id));
+            setAttr("V_USER_BANK", VUserBank.me.findByUid(uid));
+            setAttr("V_USER_COMPANY", VUserCompany.me.findByUid(uid));
+            setAttr("V_USER_ENTERPRISE", VUserEnterprise.me.findByUid(uid));
+            setAttr("V_USER_HOUSE", VUserHouse.me.findByUid(uid));
+            setAttr("V_USER_CAR", VUserCar.me.findByUid(uid));
+            setAttr("V_USER_INFO", VUserInfo.me.findByUid(uid));
+            setAttr("V_USER_CONTACT", User_Contact.me.findVByUid(uid));
+
+            render("/WEB-INF/MEMBER_PAGE/member_apply_detail.ftl");
+        } catch (Exception ex) {
+            System.err.println(ex.toString());
+            renderError(404);
+        }
 
     }
 

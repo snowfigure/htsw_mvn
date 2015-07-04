@@ -13,6 +13,8 @@
     <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body style="text-align:left;padding: 15px">
+
+
 <div class="panel panel-default">
     <div class="panel-heading">
         <h3 class="panel-title">
@@ -212,6 +214,19 @@
                         return;
                     }
                     showLog(row._apply_id_);
+                }
+            },
+            {
+                text: "申请详情",
+                iconCls: 'icon-tip',
+                handler: function () {
+                    var row = $('#apply__dg').datagrid("getSelected");
+                    if (row == null) {
+                        $.messager.alert('错误', '请选择一条记录！', 'info');
+                        return;
+                    }
+                    window.open("/admin/apply/applyDetail/" + row._apply_id_,"_target");
+
                 }
             }
             ],

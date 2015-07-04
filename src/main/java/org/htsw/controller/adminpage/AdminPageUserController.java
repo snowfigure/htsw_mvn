@@ -26,7 +26,7 @@ public class AdminPageUserController extends AdminController {
         setAttr("cat_id",cat);
         setAttr("cat", cat);
         setAttr("type", type);
-        render("/WEB-INF/ADMIN_PAGE/USER/userInfo.ftl");
+        render("/WEB-INF/ADMIN_PAGE/USER/userInfo_"+type+".ftl");
     }
 
     public void count() {
@@ -93,14 +93,15 @@ public class AdminPageUserController extends AdminController {
         String user_uname = getPara("user_uname", "");
         String user_name = getPara("user_name", "");
         String user_email = getPara("user_email","");
+        String user_enable = getPara("user_enable","");
 
         String search = searchDeal(user_uname,user_name,user_email);
 
-        if ("e_disabled".equals(cat)) {
-            search = " where enable=1 " + search;
+        if ("2".equals(user_enable)) {
+            search = " and enable=2 " + search;
         }
-        if ("e_enable".equals(cat)) {
-            search = " where enable=0 " + search;
+        if ("1".equals(user_enable)) {
+            search = " and enable=1 " + search;
         }
 
         if(StringUtils.isNotEmpty(search)){
@@ -166,15 +167,24 @@ public class AdminPageUserController extends AdminController {
         String user_uname = getPara("user_uname", "");
         String user_name = getPara("user_name", "");
         String user_email = getPara("user_email","");
+        String user_enable = getPara("user_enable", "");
+        String user_email_check = getPara("user_email_check", "");
+
 
         String search = searchDeal(user_uname,user_name,user_email);
 
-
-        if ("m_unchecked".equals(cat)) {
-            search = "where reg_valid<>'checked' or reg_valid is null " + search;
+        if ("2".equals(user_enable)) {
+            search = " and enable=2 " + search;
         }
-        if ("m_checked".equals(cat)) {
-            search = "where reg_valid='checked' "  + search;
+        if ("1".equals(user_enable)) {
+            search = " and enable=1 " + search;
+        }
+
+        if ("2".equals(user_email_check)) {
+            search += " and reg_valid<>'checked' or reg_valid is null " + search;
+        }
+        if ("1".equals(user_email_check)) {
+            search += " and reg_valid='checked' "  + search;
         }
 
         if(StringUtils.isNotEmpty(search)){
@@ -231,7 +241,7 @@ public class AdminPageUserController extends AdminController {
                 .set("name", realname)
                 .set("email", email)
                 .set("create_time", reg_time)
-                .set("enable", 0)     //
+                .set("enable", 1)     //
                 .set("delete_status", 0).save();
 
         //member用户的角色分配
